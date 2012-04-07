@@ -39,7 +39,7 @@ with_jquery(function($) {
         var commentlink = $(this).closest(".comments").next();
         var commentlinkId = commentlink.attr("id");
         var clone = $("#clone-of-" + commentlinkId);
-        var username = goodify($(this).prev().text().replace(/♦/, "")).substr(0,3);
+        var username = goodify($(this).prev().text().replace(/♦/, "")).substr(0,3).toLowerCase();
         clone.hide();
         commentlink.click();
         var formid = commentlinkId.replace(/^.*-(\d+)$/, "add-comment-$1");
