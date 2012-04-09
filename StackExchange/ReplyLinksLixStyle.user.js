@@ -18,6 +18,10 @@
 // @author         Benjamin Dumke (Modified by Manishearth)
 // ==/UserScript==
 
+//Copied and slightly modified from http://stackapps.com/questions/2051/reply-links-on-comments by Manishearth
+
+
+
 // Thanks to Shog9 for this idea for making the script work in both
 // Chrome and Firefox:
 // http://meta.stackoverflow.com/questions/46562
