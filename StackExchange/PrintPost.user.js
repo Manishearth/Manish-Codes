@@ -4,11 +4,11 @@
  // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
  // @description Adds a "print this post" button
  // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
- // @include http://*stackoverflow.com/*
- // @include http://*superuser.com/*
- // @include http://*serverfault.com/*
- // @include http://*stackexchange.com/*
-
+ // @include http://*stackoverflow.com/questions/*
+ // @include http://*superuser.com/questions/*
+ // @include http://*serverfault.com/questions/*
+ // @include http://*stackexchange.com/questions/*
+ // @include http://discuss.area51.com/questions/*
  // ==/UserScript==
 
 function with_jquery(f) {
