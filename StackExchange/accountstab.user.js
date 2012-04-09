@@ -12,12 +12,12 @@
 
 
 
- function with_jquery(f) {
+function with_jquery(f) {
      var script = document.createElement("script");
      script.type = "text/javascript";
      script.textContent = "(" + f.toString() + ")(jQuery)";
      document.body.appendChild(script);
- };
+};
 
 
  with_jquery(function($){
