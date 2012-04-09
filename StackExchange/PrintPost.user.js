@@ -1,10 +1,13 @@
 // ==UserScript==
- // @name Flag Offtopic button
+ // @name Print-a-post
  // @version 1.0
  // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
- // @description Adds a self-navigating "Flag-offtopic" button to MSO
+ // @description Adds a "print this post" button
  // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
- // @include http://meta.stackoverflow.com/questions/*
+ // @include http://*stackoverflow.com/*
+ // @include http://*superuser.com/*
+ // @include http://*serverfault.com/*
+ // @include http://*stackexchange.com/*
 
  // ==/UserScript==
 
@@ -18,51 +21,15 @@ function with_jquery(f) {
 
 with_jquery(function($){
 $('document').ready(function(){
-window.offtopicReason="You've come to the wrong place for this post, maybe you meant to post it at [Stack Overflow](http://stackoverflow.com)? This place is for _discussing stuff about_ Stack Overflow.";
-
-window.qid=$('.question').attr('data-questionid');
-$('<span class="lsep">|</span>').appendTo('.question .post-menu');
-window.flagBtn=$('.question .post-menu a:last')[0]
-$('.question .post-menu a:last').clone().attr("id","flag-offtopic").appendTo('.question .post-menu');
-$('.question .post-menu a:last')[0].innerHTML="flag offtopic";
-$('.question .post-menu a:last').on("click",function(event){
-         flagBtn.click();
-	 waitUntilExists("flag-load-close",function(){
-		setTimeout(function(){
-			$('#flag-load-close')[0].click();
-			waitUntilExists('close-2',function(){
-				setTimeout(function(){
-					$('#close-2').attr('checked',true);
-					$('#close-2')[0].click();
-
-				},10);
-
-			});
-
-		},10);
-	});
-
-
-	$('#comments-link-'+qid)[0].click();
-	setTimeout(function(){
-		$('#add-comment-'+qid).find('textarea')[0].value=offtopicReason;
-		$('#add-comment-'+qid).find('textarea')[0].focus();
-		setTimeout(function(){
-			 $('#add-comment-'+qid).find('input[type=submit]')[0].click();
+$('.post-menu').append($('<span class="lsep">|</span><a class="printme" href="#" title="Print this post">print</a>'));
+$('.printme').bind("click",function(){
+	printpost=$(this).closest('div.question,div[id^=answer]').find('.post-text').clone();
+	$('body').empty();
+	$('body').append(printpost);
+	$('body').css('text-align','left')
 	
-		},1000);
-	},10);
+	return false;
 });
 
 });
-
-window.waitUntilExists=function(wbid,wfn){
-	if($("#"+wbid).length==0){
-   		window.waitFunc=function(){waitUntilExists(wbid,wfn)};
-		setTimeout(waitFunc,20);
-	}else{
-		wfn();
-	}
-}
-
 });
