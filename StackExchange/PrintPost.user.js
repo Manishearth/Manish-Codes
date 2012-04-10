@@ -23,11 +23,12 @@ with_jquery(function($){
 $('document').ready(function(){
 $('.post-menu').append($('<span class="lsep">|</span><a class="printme" href="#" title="Print this post">print</a>'));
 $('.printme').bind("click",function(){
-	printpost=$(this).closest('div.question,div[id^=answer]').find('.post-text').clone();
+	usernameprint=$(this).closest('div.question,div[id^=answer]').find("td.owner div.user-details a")[0].innerHTML;
+	printpost=$(this).closest('div.question,div[id^=answer]').find('.post-text').clone().css("margin-left","15px");
 	$('body').empty();
 	$('body').append(printpost);
 	$('body').css('text-align','left')
-	
+	$('.post-text').append($('<div>--'+usernameprint+'</div>').css('text-align','right'))
 	return false;
 });
 
