@@ -1,6 +1,6 @@
 // ==UserScript==
  // @name Print-a-post
- // @version 1.0
+ // @version 1.0.1
  // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
  // @description Adds a "print this post" button
  // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
