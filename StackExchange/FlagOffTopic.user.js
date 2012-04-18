@@ -22,7 +22,7 @@ window.offtopicReason="You've come to the wrong place for this post, maybe you m
 if($('.question .post-menu a[id^="flag-post"]').length>0){
 window.qid=$('.question').attr('data-questionid');
 $('<span class="lsep">|</span>').appendTo('.question .post-menu');
-$('.question .post-menu a:last').clone().attr("id","flag-offtopic").appendTo('.question .post-menu');
+$('.question .post-menu a:last').clone().attr("id","flag-offtopic").attr("title","Comment and flag as offtopic").appendTo('.question .post-menu');
 $('.question .post-menu a:last')[0].innerHTML="flag offtopic";
 $('.question .post-menu a:last').on("click",function(event){
          $('.question .post-menu a[id^="flag-post"]')[0].click();
