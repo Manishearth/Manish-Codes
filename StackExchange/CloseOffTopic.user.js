@@ -36,9 +36,6 @@ $('.question .post-menu a:last').on("click",function(event){
 
 			});
 
-
-
-
 	$('#comments-link-'+qid)[0].click();
 	setTimeout(function(){
 		$('#add-comment-'+qid).find('textarea')[0].value=offtopicReason;
