@@ -22,7 +22,7 @@ window.offtopicReason="You've come to the wrong place for this post, maybe you m
 if($('.question .post-menu a[id^="close-question"]').length>0&&$('.question .post-menu a[id^="close-question"]')[0].innerHTML.indexOf("reopen")==-1){
 window.qid=$('.question').attr('data-questionid');
 $('<span class="lsep">|</span>').appendTo('.question .post-menu');
-$('.question .post-menu a:last').clone().attr("id","close-offtopic").appendTo('.question .post-menu');
+$('.question .post-menu a:last').clone().attr("id","close-offtopic").attr("title","Comment ans vote-to-close as off topic").appendTo('.question .post-menu');
 $('.question .post-menu a:last')[0].innerHTML="close offtopic";
 $('.question .post-menu a:last').on("click",function(event){
          $('.question .post-menu a[id^="close-question"]')[0].click();
