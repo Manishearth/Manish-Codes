@@ -1,8 +1,8 @@
 // ==UserScript==
- // @name Flag Offtopic button
+ // @name Close Offtopic button
  // @version 1.0
  // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
- // @description Adds a self-navigating "Flag-offtopic" button to MSO
+ // @description Adds a self-navigating "Close-offtopic" button to MSO which autocomments
  // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
  // @include http://meta.stackoverflow.com/questions/*
 
@@ -22,14 +22,11 @@ window.offtopicReason="You've come to the wrong place for this post, maybe you m
 
 window.qid=$('.question').attr('data-questionid');
 $('<span class="lsep">|</span>').appendTo('.question .post-menu');
-window.flagBtn=$('.question .post-menu a:last')[0]
 $('.question .post-menu a:last').clone().attr("id","flag-offtopic").appendTo('.question .post-menu');
 $('.question .post-menu a:last')[0].innerHTML="flag offtopic";
 $('.question .post-menu a:last').on("click",function(event){
-         flagBtn.click();
-	 waitUntilExists("flag-load-close",function(){
-		setTimeout(function(){
-			$('#flag-load-close')[0].click();
+         $('.question .post-menu a[id^="close-question"]')[0].click();
+
 			waitUntilExists('close-2',function(){
 				setTimeout(function(){
 					$('#close-2').attr('checked',true);
@@ -39,8 +36,7 @@ $('.question .post-menu a:last').on("click",function(event){
 
 			});
 
-		},10);
-	});
+
 
 
 	$('#comments-link-'+qid)[0].click();
