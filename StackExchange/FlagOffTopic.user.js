@@ -19,7 +19,7 @@ function with_jquery(f) {
 with_jquery(function($){
 $('document').ready(function(){
 window.offtopicReason="You've come to the wrong place for this post, maybe you meant to post it at [Stack Overflow](http://stackoverflow.com)? This place is for _discussing stuff about_ Stack Overflow.";
-
+if($('.question .post-menu a[id^="flag-post"]').length>0){
 window.qid=$('.question').attr('data-questionid');
 $('<span class="lsep">|</span>').appendTo('.question .post-menu');
 $('.question .post-menu a:last').clone().attr("id","flag-offtopic").appendTo('.question .post-menu');
@@ -51,9 +51,11 @@ $('.question .post-menu a:last').on("click",function(event){
 	
 		},1000);
 	},10);
-});
 
 });
+}
+});
+
 
 window.waitUntilExists=function(wbid,wfn){
 	if($("#"+wbid).length==0){
