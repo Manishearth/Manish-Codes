@@ -27,7 +27,7 @@ $('.printme').bind("click",function(){
 		return false;	
 	
 	}
-	usernameprint=$(this).closest('div.question,div[id^=answer]').find("td.owner div.user-details a")[0].innerHTML;
+	usernameprint=$(this).closest('div.question,div[id^=answer]').find("td.post-signature div.user-details a")[0].innerHTML;
 	printpost=$(this).closest('div.question,div[id^=answer]').find('.post-text').clone().css("margin-left","15px");
 	$('body').empty();
 	$('body').append(printpost);
