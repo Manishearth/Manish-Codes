@@ -22,11 +22,10 @@ window.offtopicReason="You've come to the wrong place for this post, maybe you m
 
 window.qid=$('.question').attr('data-questionid');
 $('<span class="lsep">|</span>').appendTo('.question .post-menu');
-window.flagBtn=$('.question .post-menu a:last')[0]
 $('.question .post-menu a:last').clone().attr("id","flag-offtopic").appendTo('.question .post-menu');
 $('.question .post-menu a:last')[0].innerHTML="flag offtopic";
 $('.question .post-menu a:last').on("click",function(event){
-         flagBtn.click();
+         $('.question .post-menu a[id^="flag-post"]')[0].click();
 	 waitUntilExists("flag-load-close",function(){
 		setTimeout(function(){
 			$('#flag-load-close')[0].click();
