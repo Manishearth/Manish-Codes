@@ -1,4 +1,4 @@
-// ==UserScript==
+ // ==UserScript==
  // @name Close Offtopic button
  // @version 1.0
  // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
