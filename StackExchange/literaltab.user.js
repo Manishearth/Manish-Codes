@@ -4,7 +4,9 @@
  // @description Allows proper tabbing in editboxes
  // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
  // @include http://stackoverflow.com/*
-
+ // @include http://codereview.stackexchange.com/*
+ // @include http://programmers.stackexchange.com/*
+ // @version 1.0
  // ==/UserScript==
 
 
