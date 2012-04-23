@@ -1,16 +1,15 @@
 // ==UserScript==
- // @name Ban myself
+ // @name Literal tab in edit box
  // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
- // @description Bans you from all stackexchange sites
+ // @description Allows proper tabbing in editboxes
  // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
- // @include http://*stackoverflow.com/*
- // @include http://superuser.com/*
- // @include http://serverfault.com/*
- // @include http://*stackexchange.com/*
+ // @include http://stackoverflow.com/*
 
  // ==/UserScript==
 
 
+//modified from http://en.wikipedia.org/wiki/User:AoV2/tabs_in_textarea
+//replacement insertTags http://stackoverflow.com/a/4384173/1198729
 
  function with_jquery(f) {
      var script = document.createElement("script");
@@ -22,38 +21,38 @@
 
  with_jquery(function($){
 
+function intercept(e){
+ if(e.keyCode == 9) { // U+0009 CHARACTER TABULATION
+  insertAtCaret(this,"\t")
+		return false;		
+		}		
+	else{
+  return true;
+	}
+ 
+	}
+ function insertAtCaret(element, text) {
+    if (document.selection) {
+        element.focus();
+        var sel = document.selection.createRange();
+        sel.text = text;
+        element.focus();
+    } else if (element.selectionStart || element.selectionStart === 0) {
+        var startPos = element.selectionStart;
+        var endPos = element.selectionEnd;
+        var scrollTop = element.scrollTop;
+        element.value = element.value.substring(0, startPos) + text + element.value.substring(endPos, element.value.length);
+        element.focus();
+        element.selectionStart = startPos + text.length;
+        element.selectionEnd = startPos + text.length;
+        element.scrollTop = scrollTop;
+    } else {
+        element.value += text;
+        element.focus();
+    }
+}
 
-   /*** START EDITING HERE                       ***/
-   /***                                          ***/
-   /***                                          ***/
+$('textarea[id^=wmd-input]').on('keydown',intercept)
 
-         // When you want to end your break?
-         // no leading zeroes. (example: 7 - correct, 07 - incorrect)
-
-         var date = { year: 2012, month: 12, day: 12};
-         var time = { hours: 12, minutes: 12, seconds: 12 };
-         var whileLoggedOut=false; //Do you want the script to ban you from using SO while logged out?
-
-   /***                                          ***/
-   /***                                          ***/
-   /*** STOP EDITING HERE                        ***/
-
-
-
-
-         var currentDate = new Date();
-         var enforcedBreakEnd = new Date(date.year,date.month-1,date.day,time.hours,time.minutes,time.seconds);
-
-
-         if (currentDate <= enforcedBreakEnd) {
-                 if(whileLoggedOut){
-                      document.body.innerHTML="<h1>GET BACK TO WORK</h1>";
-
-                 }else{
-                     $(document).ready(function(){if($("#hlinks-user")[0].childNodes.length > 1){
-                      document.body.innerHTML="<h1>GET BACK TO WORK</h1>";     
-                     }});
-                 }
-         }
 
  });
