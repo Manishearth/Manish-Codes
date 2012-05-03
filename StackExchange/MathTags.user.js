@@ -12,7 +12,7 @@
 // ==/UserScript==
 
 //Currently does nothing.
-
+//Some functionality copied from https://gist.github.com/2583075
 
 
 
@@ -39,68 +39,25 @@ this.className+=" canhasbutton"+identify;
 
 
 
-//Some functionality copied from https://gist.github.com/2583075
 
-function AddKbdShortcuts ($) {
-    $("textarea.wmd-input").each (AddKbdButtonAsNeeded);
 
-    //.on() not working right!!
-    $("textarea.wmd-input").live ("focus",   AddKbdButtonAsNeeded);
-    $("textarea.wmd-input").live ("keydown", InsertKbdTagByKeypress);
-    $("li.wmd-kbd-button") .live ("click",   InsertKbdTagByClick);
 
-    /*------------*/
-    function AddKbdButtonAsNeeded () {
-        var jThis   = $(this);
-        if ( ! jThis.data ("hasKbdBttn") ) {
-            //--- Find the button bar and add our button.
-            var btnBar  = jThis.prevAll ("div.wmd-button-bar");
-            if (btnBar.length) {
-                //--- The button bar takes a while to AJAX-in.
-                var bbListTimer = setInterval ( function() {
-                        var bbList  = btnBar.find ("ul.wmd-button-row");
-                        if (bbList.length) {
-                            clearInterval (bbListTimer);
-                            bbList.append (
-                                  '<li class="wmd-button wmd-kbd-button" '
-                                + 'title="Keyboard tag &lt;kbd&gt; Alt+K" '
-                                + 'style="left: 380px;">'
-                                + '<span style="background: white;">[kbd]</span></li>'
-                            );
-                            jThis.data ("hasKbdBttn", true);
-                        }
-                    },
-                    100
-                );
-            }
-        }
-    }
-
-    function InsertKbdTagByKeypress (zEvent) {
+function keyPressEventLambda(key,callback){
+return function (zEvent) {
         //--- On Alt-K, insert the <kbd> set. Ignore all other keys.
-        if (zEvent.altKey  &&  zEvent.which == 75) {
-            InsertKbdTag (this);
+        if (zEvent.which == key) {
+            callback(this);
             return false;
         }
         return true;
-    }
+}
+}
 
-    function InsertKbdTagByClick (zEvent) {
-        //--- From the clicked button, find the matching textarea.
-        var targArea    = $(this).parents ("div.wmd-button-bar")
-                        .nextAll ("textarea.wmd-input");
-
-        InsertKbdTag (targArea[0]);
-        targArea.focus ();
-        try {
-            //--- This is a utility function that SE currently provides on its pages.
-            StackExchange.MarkdownEditor.refreshAllPreviews ();
-        }
-        catch (e) {
-            console.warn ("***Userscript error: refreshAllPreviews() is no longer defined!");
-        }
-    }
- function InsertKbdTag (node) {
+function clickButtonEventLambda(left, right){
+ return function (tid) {
+	 
+	 	node=$('#'+tid)[0];
+		try{
         //--- Wrap selected text or insert at curser.
         var oldText         = node.value || node.textContent;
         var newText;
@@ -108,18 +65,38 @@ function AddKbdShortcuts ($) {
         var iTargetEnd      = node.selectionEnd;
 
         if (iTargetStart == iTargetEnd)
-            newText         = '<kbd></kbd>';
+            newText         = left+right;
         else
-            newText         = '<kbd>' + oldText.slice (iTargetStart, iTargetEnd) + '</kbd>';
+            newText         = left + oldText.slice (iTargetStart, iTargetEnd) + right;
 
         //console.log (newText);
         newText             = oldText.slice (0, iTargetStart) + newText + oldText.slice (iTargetEnd);
         node.value          = newText;
         //-- After using spelling corrector, this gets buggered, hence the multiple sets.
         node.textContent    = newText;
-
+		debugger;
         //-- Have to reset selection, since we repasted the text.
-        node.selectionStart = iTargetStart + 5;
-        node.selectionEnd   = iTargetEnd   + 5;
+        node.selectionStart = iTargetStart + left.length;
+        node.selectionEnd   = iTargetEnd   + right.length+left.length-1;
+			node.focus ();
+        try {
+            //--- This is a utility function that SE currently provides on its pages.
+            StackExchange.MarkdownEditor.refreshAllPreviews ();
+        }
+        catch (e) {
+            console.warn ("***Userscript error: refreshAllPreviews() is no longer defined!");
+        }
+		}catch (e) {
+            console.warn ("***Textarea does not exist");
+			console.log(e);
+        }
     }
 
+
+}
+SIify=clickButtonEventLambda("\\:\\mathrm{","}")
+dollarify=clickButtonEventLambda("$","$")
+chemify=clickButtonEventLambda("\\ce{","}")
+addbutton("SI","SIify","SI","");
+addbutton("$","dollarify","dollar","");
+addbutton("O<sub>2</sub>","chemify","chemify","");
