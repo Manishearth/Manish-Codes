@@ -63,7 +63,7 @@ window.clickButtonEventLambda=function(left, right){
 window.SIify=clickButtonEventLambda("\\:\\mathrm{","}");
 window.dollarify=clickButtonEventLambda("$","$");
 window.Ddollarify=clickButtonEventLambda("$$","$$");
-window.chemify=clickButtonEventLambda("\\ce{","}");
+window.chemify=clickButtonEventLambda("$\\ce{","}$");
 
 
 
