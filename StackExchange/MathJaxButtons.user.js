@@ -4,7 +4,7 @@
  // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
  // @description Adds math buttons to the SEeditor, including a "$" button, a "$$" button, an SI-unit-ify button (on science sites), and a "\ce{}" button on chem.SE
  // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
- // @include http://*math.stackexchange.com/*
+ // @include http://*math*.stackexchange.com/*
  // @include http://physics.stackexchange.com/*
  // @include http://chemistry.stackexchange.com/*
  // @include http://biology.stackexchange.com/*
@@ -13,67 +13,9 @@
 
 //Some functionality copied from https://gist.github.com/2583075. Thanks, Brock.
 
-
-//Methods:
-
-window.SIify=clickButtonEventLambda("\\:\\mathrm{","}");
-window.dollarify=clickButtonEventLambda("$","$");
-window.Ddollarify=clickButtonEventLambda("$$","$$");
-window.chemify=clickButtonEventLambda("\\ce{","}");
-
-//Configuration:
-window.buttonconfig={
-	"2 (SI)":["SI",SIify,"SI","","s",/(physics|chem|biology)/ig],
-	"1 (Dollar)":["$",dollarify,"dollar","","m",/stack/ig],
-	"4 (DoubleDollar)":["$$",Ddollarify,"Ddollar","","",/stack/ig],
-	"3 (Chem)":["O<sub>2</sub>",chemify,"chemify","","c",/chemistry/ig],
-};
-
-
-
-
-window.addButton=function(text,callback,identify,pic){
-//Callback must take id of textarea as argument.
-$.each($('.wmd-container').not(".canhasbutton"+identify),function(){
-try{
-tid=$(this).find("[id^=wmd-input]")[0].id;
-row=$(this).find("[id^=wmd-button-row]")[0];
-lastel=$(row).find(".wmd-button").not(".wmd-help-button").filter(":last");
-if(lastel.length>0){
-px=parseInt(lastel[0].style.left.replace("px",""))+25;
-//add code for background-position of span as well later
-btn='<li class="wmd-button" style="left: '+px+'px; "><span style="background-image:url('+pic+');text-align:center;">'+text+'</span></li>';
-$(btn).on("click",function(){callback(tid)}).insertAfter(lastel);
-btn=$(row).find(".wmd-button").not(".wmd-help-button").filter(":last");
-if(pic==""){
-$(btn).children('span').hover(function(){$(this).css('background','#DEEDFF')},function(){$(this).css('background','#FFFFFF')});
-}
-}
-this.className+=" canhasbutton"+identify;
-}catch(e){console.log(e)}
-})
-}
-
-
-
-
-
-
-
-
-function keyPressEventLambda(key,callback){
-return function (zEvent) {
-		//console.log(zEvent);
-        //--- On Alt-K, insert the <kbd> set. Ignore all other keys.
-        if (zEvent.altKey  && ( zEvent.which == key.charCodeAt(0)||zEvent.which == key.toUpperCase().charCodeAt(0))) {
-            callback(this.id);
-            return false;
-        }
-        return true;
-}
-}
-
-function clickButtonEventLambda(left, right){
+function ButtonStuff($){
+//clickbuttoneventlambda:
+window.clickButtonEventLambda=function(left, right){
  return function (tid) {
 	 
 	 	node=$('#'+tid)[0];
@@ -110,10 +52,89 @@ function clickButtonEventLambda(left, right){
             console.warn ("***Textarea does not exist");
 			console.log(e);
         }
+		return false;
     }
 
 
 }
+
+//Methods:
+
+window.SIify=clickButtonEventLambda("\\:\\mathrm{","}");
+window.dollarify=clickButtonEventLambda("$","$");
+window.Ddollarify=clickButtonEventLambda("$$","$$");
+window.chemify=clickButtonEventLambda("\\ce{","}");
+
+
+
+
+
+//************************************************
+//Configuration:
+window.buttonconfig={
+	"2 (SI)":["SI",SIify,"SI","","s",/(physics|chem|biology)/ig],
+	"1 (Dollar)":["$",dollarify,"dollar","","m",/stack/ig],
+	"4 (DoubleDollar)":["$$",Ddollarify,"Ddollar","","",/stack/ig],
+	"3 (Chem)":["O<sub>2</sub>",chemify,"chemify","","c",/chemistry/ig],
+};
+
+//************************************************
+
+
+
+
+
+
+window.addButton=function(text,callback,identify,pic,force){
+//Callback must take id of textarea as argument.
+force = typeof force !== 'undefined' ? force : false;
+var tas=force?$('.wmd-container'):$('.wmd-container').not(".canhasbutton"+identify);
+$.each(tas,function(){
+try{
+if($(this).find("[id^=wmd-button-row]").length==0){
+	setTimeout(function(){addButton(text,callback,identify,pic,true)},100);
+	return;
+}else{
+	
+	this.className+=" canhasbutton"+identify
+}
+tid=$(this).find("[id^=wmd-input]")[0].id;
+row=$(this).find("[id^=wmd-button-row]")[0];
+lastel=$(row).find(".wmd-button").not(".wmd-help-button").filter(":last");
+if(lastel.length>0){
+px=parseInt(lastel[0].style.left.replace("px",""))+25;
+//add code for background-position of span as well later
+btn='<li class="wmd-button" style="left: '+px+'px; "><span style="background-image:url('+pic+');text-align:center;">'+text+'</span></li>';
+$(btn).on("click",function(){callback(tid)}).insertAfter(lastel);
+btn=$(row).find(".wmd-button").not(".wmd-help-button").filter(":last");
+if(pic==""){
+$(btn).children('span').hover(function(){$(this).css('background','#DEEDFF')},function(){$(this).css('background','#FFFFFF')});
+}
+}
+
+}catch(e){console.log(e)}
+})
+}
+
+
+
+
+
+
+
+
+window.keyPressEventLambda=function(key,callback){
+return function (zEvent) {
+		//console.log(zEvent);
+        //--- On Alt-K, insert the <kbd> set. Ignore all other keys.
+        if (zEvent.altKey  && ( zEvent.which == key.charCodeAt(0)||zEvent.which == key.toUpperCase().charCodeAt(0))) {
+            callback(this.id);
+            return false;
+        }
+        return true;
+}
+}
+
 
 
 
@@ -126,7 +147,7 @@ window.addButtons=function(){
 	}
 }
 
-function addKeyPressEventLives(){
+window.addKeyPressEventLives=function(){
 
 		for(var i in buttonconfig){
 			if(buttonconfig[i][4]!=""){
@@ -138,21 +159,8 @@ function addKeyPressEventLives(){
 }
 
 
-function with_jquery(f) {
-     var script = document.createElement("script");
-     script.type = "text/javascript";
-     script.textContent = "(" + f.toString() + ")(jQuery)";
-     document.body.appendChild(script);
-};
 
-with_jquery(function($){
-$(document).ready(function(){
-addButtons()
-addKeyPressEventLives()
-$("textarea.wmd-input").live("click",addButtons);
-});
 
-});
 
 
 
@@ -165,3 +173,28 @@ window.waitUntilExists=function(wb,wfn){
 		wfn();
 	}
 }
+
+
+
+
+
+
+
+$(document).ready(function(){
+	addButtons()
+	addKeyPressEventLives()
+	$("textarea.wmd-input").live("focus",addButtons);
+});
+
+
+
+};
+
+function with_jquery(f) {
+     var script = document.createElement("script");
+     script.type = "text/javascript";
+     script.textContent = "(" + f.toString() + ")(jQuery)";
+     document.body.appendChild(script);
+};
+
+with_jquery(ButtonStuff);
