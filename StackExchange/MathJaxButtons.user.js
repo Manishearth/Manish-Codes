@@ -16,13 +16,13 @@
 
 //Methods:
 
-SIify=clickButtonEventLambda("\\:\\mathrm{","}");
-dollarify=clickButtonEventLambda("$","$");
-Ddollarify=clickButtonEventLambda("$$","$$");
-chemify=clickButtonEventLambda("\\ce{","}");
+window.SIify=clickButtonEventLambda("\\:\\mathrm{","}");
+window.dollarify=clickButtonEventLambda("$","$");
+window.Ddollarify=clickButtonEventLambda("$$","$$");
+window.chemify=clickButtonEventLambda("\\ce{","}");
 
 //Configuration:
-var buttonconfig={
+window.buttonconfig={
 	"2 (SI)":["SI",SIify,"SI","","s",/(physics|chem|biology)/ig],
 	"1 (Dollar)":["$",dollarify,"dollar","","m",/stack/ig],
 	"4 (DoubleDollar)":["$$",Ddollarify,"Ddollar","","",/stack/ig],
@@ -32,7 +32,7 @@ var buttonconfig={
 
 
 
-function addButton(text,callback,identify,pic){
+window.addButton=function(text,callback,identify,pic){
 //Callback must take id of textarea as argument.
 $.each($('.wmd-container').not(".canhasbutton"+identify),function(){
 try{
@@ -118,7 +118,7 @@ function clickButtonEventLambda(left, right){
 
 
 
-function addButtons(){
+window.addButtons=function(){
 	for(var i in buttonconfig){
 			if(window.location.host.match(buttonconfig[i][5])){
 				addButton(buttonconfig[i][0],buttonconfig[i][1],buttonconfig[i][2],buttonconfig[i][3])
@@ -152,7 +152,7 @@ addKeyPressEventLives()
 $("textarea.wmd-input").live("click",addButtons);
 });
 
-
+});
 
 
 
@@ -165,4 +165,3 @@ window.waitUntilExists=function(wb,wfn){
 		wfn();
 	}
 }
-});
