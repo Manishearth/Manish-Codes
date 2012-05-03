@@ -108,7 +108,7 @@ btn='<li class="wmd-button" style="left: '+px+'px; "><span style="background-ima
 $(btn).on("click",function(){callback(tid)}).insertAfter(lastel);
 btn=$(row).find(".wmd-button").not(".wmd-help-button").filter(":last");
 if(pic==""){
-$(btn).children('span').hover(function(){$(this).css('background','#DEEDFF')},function(){$(this).css('background','#FFFFFF')});
+$(btn).children('span').hover(function(){$(this).css('background','#DEEDFF')},function(){$(this).css('background','none')});
 }
 }
 
