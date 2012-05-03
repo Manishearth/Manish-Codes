@@ -6,8 +6,8 @@
  // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
  // @include http://*math.stackexchange.com/*
  // @include http://physics.stackexchange.com/*
- // @include http://chemistry.stackoverflow.com/*
- // @include http://biology.stackoverflow.com/*
+ // @include http://chemistry.stackexchange.com/*
+ // @include http://biology.stackexchange.com/*
  // ==/UserScript==
 
 
