@@ -81,7 +81,7 @@ window.buttonconfig={
 	//Special per-site ones:
 	"3 (Chem)":["O<sub>2</sub>",chemify,"chemify","","c",/chemistry/ig,""],
 	"1 (DollarElectronics)":["$",clickButtonEventLambda("\\$","\\$"),"dollar","","m",/electronics/ig,""],
-	"4 (DDollarElectronics)":["$",Ddollarify,"dollar","","d",/electronics/ig,""],
+	"4 (DDollarElectronics)":["$$",Ddollarify,"Ddollar","","d",/electronics/ig,""],
 };
 
 //************************************************
