@@ -71,6 +71,7 @@ window.chemify=clickButtonEventLambda("$\\ce{","}$");
 
 //************************************************
 //Configuration:
+//format: [Button HTML text,callback,unique identifier,keyboard shortcut,regex for sitename]
 window.buttonconfig={
 	"2 (SI)":["SI",SIify,"SI","","s",/(physics|chem|biology)/ig],
 	"1 (Dollar)":["$",dollarify,"dollar","","m",/stack/ig],
