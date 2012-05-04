@@ -8,6 +8,7 @@
  // @include http://physics.stackexchange.com/*
  // @include http://chemistry.stackexchange.com/*
  // @include http://biology.stackexchange.com/*
+ // @include http://electronics.stackexchange.com/*
  // ==/UserScript==
 
 
@@ -71,12 +72,15 @@ window.chemify=clickButtonEventLambda("$\\ce{","}$");
 
 //************************************************
 //Configuration:
-//format: [Button HTML text,callback,unique identifier,keyboard shortcut,regex for sitename]
+//format: [Button HTML text,callback,unique identifier,keyboard shortcut,regex for sitename,regex for NOT sitename, empty string if you don't need this]
 window.buttonconfig={
 	"2 (SI)":["SI",SIify,"SI","","s",/(physics|chem|biology)/ig,""],
-	"1 (Dollar)":["$",dollarify,"dollar","","m",/stack/ig,""],
+	"1 (Dollar)":["$",dollarify,"dollar","","m",/stack/ig,/electronics/ig],
 	"4 (DoubleDollar)":["$$",Ddollarify,"Ddollar","","",/stack/ig,""],
+	
+	//Special per-site ones:
 	"3 (Chem)":["O<sub>2</sub>",chemify,"chemify","","c",/chemistry/ig,""],
+	"1 (DollarElectronics)":["$",clickButtonEventLambda("\\$","\\$"),"dollar","","m",/electronics/ig,""],
 };
 
 //************************************************
