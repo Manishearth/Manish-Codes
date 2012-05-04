@@ -76,11 +76,12 @@ window.chemify=clickButtonEventLambda("$\\ce{","}$");
 window.buttonconfig={
 	"2 (SI)":["SI",SIify,"SI","","s",/(physics|chem|biology)/ig,""],
 	"1 (Dollar)":["$",dollarify,"dollar","","m",/stack/ig,/electronics/ig],
-	"4 (DoubleDollar)":["$$",Ddollarify,"Ddollar","","",/stack/ig,""],
+	"4 (DoubleDollar)":["$$",Ddollarify,"Ddollar","","",/stack/ig,/electronics/ig],
 	
 	//Special per-site ones:
 	"3 (Chem)":["O<sub>2</sub>",chemify,"chemify","","c",/chemistry/ig,""],
 	"1 (DollarElectronics)":["$",clickButtonEventLambda("\\$","\\$"),"dollar","","m",/electronics/ig,""],
+	"4 (DDollarElectronics)":["$",Ddollarify,"dollar","","d",/electronics/ig,""],
 };
 
 //************************************************
