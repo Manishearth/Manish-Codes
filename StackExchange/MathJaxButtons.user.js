@@ -85,7 +85,7 @@ window.buttonconfig={
 	"1 (DollarElectronics)":["$",clickButtonEventLambda("\\$","\\$"),"dollar","","m",/electronics/ig,""],
 	"4 (DDollarElectronics)":["$$",Ddollarify,"Ddollar","","d",/electronics/ig,""], //keyboard shortcut
 	//Big O notation
-	"1 (BigO)":['<span style=style="font-family: MathJax_Caligraphic; ">O</span>',clickButtonEventLambda("$\\mathcal{O}(",")$"),"dollar","","o",/crypto/ig,""],	
+	"5 (BigO)":['<span style=style="font-family: MathJax_Caligraphic; ">O</span>',clickButtonEventLambda("$\\mathcal{O}(",")$"),"dollar","","o",/crypto/ig,""],	
 };
 
 //************************************************
