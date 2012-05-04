@@ -6,6 +6,7 @@
  // @include http://stackoverflow.com/*
  // @include http://codereview.stackexchange.com/*
  // @include http://programmers.stackexchange.com/*
+ // @include http://stackapps.stackexchange.com/*
  // @version 1.0
  // ==/UserScript==
 
