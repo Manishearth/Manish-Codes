@@ -108,13 +108,17 @@ if($(this).find("[id^=wmd-button-row]").length==0){
 	
 	this.className+=" canhasbutton"+identify
 }
+if($(this).find('.wmd-button-'+identify).length>0){
+return;//double safeguard	
+}
+}
 tid=$(this).find("[id^=wmd-input]")[0].id;
 row=$(this).find("[id^=wmd-button-row]")[0];
 lastel=$(row).find(".wmd-button").not(".wmd-help-button").filter(":last");
 if(lastel.length>0){
 px=parseInt(lastel[0].style.left.replace("px",""))+25;
 //add code for background-position of span as well later
-btn='<li class="wmd-button" style="left: '+px+'px; "><span style="background-image:url('+pic+');text-align:center;">'+text+'</span></li>';
+btn='<li class="wmd-button wmd-button-'+identify+' style="left: '+px+'px; "><span style="background-image:url('+pic+');text-align:center;">'+text+'</span></li>';
 $(btn).on("click",function(){callback(tid)}).insertAfter(lastel);
 btn=$(row).find(".wmd-button").not(".wmd-help-button").filter(":last");
 if(pic==""){
