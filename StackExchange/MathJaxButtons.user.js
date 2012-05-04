@@ -73,10 +73,10 @@ window.chemify=clickButtonEventLambda("$\\ce{","}$");
 //Configuration:
 //format: [Button HTML text,callback,unique identifier,keyboard shortcut,regex for sitename]
 window.buttonconfig={
-	"2 (SI)":["SI",SIify,"SI","","s",/(physics|chem|biology)/ig],
-	"1 (Dollar)":["$",dollarify,"dollar","","m",/stack/ig],
-	"4 (DoubleDollar)":["$$",Ddollarify,"Ddollar","","",/stack/ig],
-	"3 (Chem)":["O<sub>2</sub>",chemify,"chemify","","c",/chemistry/ig],
+	"2 (SI)":["SI",SIify,"SI","","s",/(physics|chem|biology)/ig,""],
+	"1 (Dollar)":["$",dollarify,"dollar","","m",/stack/ig,""],
+	"4 (DoubleDollar)":["$$",Ddollarify,"Ddollar","","",/stack/ig,""],
+	"3 (Chem)":["O<sub>2</sub>",chemify,"chemify","","c",/chemistry/ig,""],
 };
 
 //************************************************
@@ -142,7 +142,7 @@ return function (zEvent) {
 
 window.addButtons=function(){
 	for(var i in buttonconfig){
-			if(window.location.host.match(buttonconfig[i][5])){
+			if(window.location.host.match(buttonconfig[i][5])&&(buttonconfig[i][6]==""||!window.location.host.match(buttonconfig[i][6]))){
 				addButton(buttonconfig[i][0],buttonconfig[i][1],buttonconfig[i][2],buttonconfig[i][3])
 			}
 	}
@@ -152,7 +152,7 @@ window.addKeyPressEventLives=function(){
 
 		for(var i in buttonconfig){
 			if(buttonconfig[i][4]!=""){
-				if(window.location.host.match(buttonconfig[i][5])){
+				if(window.location.host.match(buttonconfig[i][5])&&(buttonconfig[i][6]==""||!window.location.host.match(buttonconfig[i][6]))){
 					$("textarea.wmd-input").live("keydown", keyPressEventLambda(buttonconfig[i][4],buttonconfig[i][1]));
 				}
 			}
