@@ -39,7 +39,7 @@ window.clickButtonEventLambda=function(left, right){
         node.textContent    = newText;
         //-- Have to reset selection, since we repasted the text.
         node.selectionStart = iTargetStart + left.length;
-        node.selectionEnd   = iTargetEnd   + right.length+left.length-1;
+        node.selectionEnd   = iTargetEnd   + left.length;
 			node.focus ();
         try {
             //--- This is a utility function that SE currently provides on its pages.
