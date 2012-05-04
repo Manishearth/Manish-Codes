@@ -19,9 +19,9 @@ function ButtonStuff($){
 //clickbuttoneventlambda:
 window.clickButtonEventLambda=function(left, right){
  return function (tid) {
-	 
+
 	 	node=$('#'+tid)[0];
-		
+
 		try{
         //--- Wrap selected text or insert at curser.
         var oldText         = node.value || node.textContent;
@@ -78,7 +78,7 @@ window.buttonconfig={
 	"2 (SI)":["SI",SIify,"SI","","s",/(physics|chem|biology)/ig,""],
 	"1 (Dollar)":["$",dollarify,"dollar","","m",/stack/ig,/electronics/ig],
 	"4 (DoubleDollar)":["$$",Ddollarify,"Ddollar","","",/stack/ig,/electronics/ig],
-	
+
 	//Special per-site ones:
 	"3 (Chem)":["O<sub>2</sub>",chemify,"chemify","","c",/chemistry/ig,""],
 	//Electronics.SE needs a backslash
@@ -105,12 +105,8 @@ if($(this).find("[id^=wmd-button-row]").length==0){
 	setTimeout(function(){addButton(text,callback,identify,pic,true)},100);
 	return;
 }else{
-	
+
 	this.className+=" canhasbutton"+identify
-}
-if($(this).find('.wmd-button-'+identify).length>0){
-return;//double safeguard	
-}
 }
 tid=$(this).find("[id^=wmd-input]")[0].id;
 row=$(this).find("[id^=wmd-button-row]")[0];
@@ -118,7 +114,7 @@ lastel=$(row).find(".wmd-button").not(".wmd-help-button").filter(":last");
 if(lastel.length>0){
 px=parseInt(lastel[0].style.left.replace("px",""))+25;
 //add code for background-position of span as well later
-btn='<li class="wmd-button wmd-button-'+identify+' style="left: '+px+'px; "><span style="background-image:url('+pic+');text-align:center;">'+text+'</span></li>';
+btn='<li class="wmd-button" style="left: '+px+'px; "><span style="background-image:url('+pic+');text-align:center;">'+text+'</span></li>';
 $(btn).on("click",function(){callback(tid)}).insertAfter(lastel);
 btn=$(row).find(".wmd-button").not(".wmd-help-button").filter(":last");
 if(pic==""){
