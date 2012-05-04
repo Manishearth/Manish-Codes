@@ -21,7 +21,8 @@ function with_jquery(f) {
 
 
  with_jquery(function($){
-if($('.user-panel-footer a[alt="full list of accounts"]').length!=0){
-$("<a href='"+$('.user-panel-footer a[alt="full list of accounts"]')[0].href+"'>Accounts</??a>").insertAfter($("#tabs a:last"))
+ var SENetworkProfile= $('img[alt="stack exchange network profile"]')
+if(SENetworkProfile.length!=0){
+$("<a href='"+SENetworkProfile.parent().attr('href')+'?tab=accounts'+"'>accounts</??a>").insertAfter($("#tabs a:last"))
 }
  });
