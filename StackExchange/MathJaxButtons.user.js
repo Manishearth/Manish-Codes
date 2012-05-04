@@ -11,7 +11,7 @@
  // @include http://electronics.stackexchange.com/*
  // @include http://crypto.stackexchange.com/*
  // @include http://*quant.stackexchange.com/*
- // @include http://stats.stackexchange.com/*
+ // @include http://*stats.stackexchange.com/*
  // ==/UserScript==
 
 
