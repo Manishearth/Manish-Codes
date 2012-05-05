@@ -20,7 +20,7 @@ function importMainScript(){
 	 var d=new Date();
      var script = document.createElement("script");
      script.type = "text/javascript";
-     script.src="https://raw.github.com/Manishearth/Manish-Codes/master/StackExchange/MathJaxButtonsScript.js"
+     script.src="https://raw.github.com/Manishearth/Manish-Codes/master/StackExchange/MathJaxButtonsScript.js?rand="+Math.random();
      document.body.appendChild(script);
 }
 //})();
