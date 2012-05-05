@@ -2,7 +2,7 @@
 
 
 (function(){
-var x=window.location.hostname;
+var x=window.location.origin;
 
 //*************************************
 var sites=["[^\\/]*math[^\\/]*","physics","chemistry","biology","electronics","crypto","[^\\/]*quant","[^\\/]*stats"];	  
