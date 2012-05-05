@@ -2,10 +2,10 @@
 
 
 (function(){
-var x=window.location.hostname;
+var x=window.location.origin;
 
 //*************************************
-var sites=["[^\\/]*math[^\\/]*","physics","chemistry","biology","electronics","crypto","[^\\/]*quant","[^\\/]*stats"];	  
+var sites=["[^\\/]*math[^\\/]*","physics","chemistry","biology","electronics","crypto","[^\\/]*quant","[^\\/]*stats","dsp"];	  
 //*************************************
 
 
@@ -23,7 +23,7 @@ function importMainScript(){
 	 var d=new Date();
      var script = document.createElement("script");
      script.type = "text/javascript";
-     script.src="https://raw.github.com/Manishearth/Manish-Codes/master/StackExchange/MathJaxButtonsScript.js"+d.getMonth()+""+d.getDay();
+     script.src="https://raw.github.com/Manishearth/Manish-Codes/master/StackExchange/MathJaxButtonsScript.js?rand="+d.getMonth()+""+d.getDay();
      document.body.appendChild(script);
 }
 })();
