@@ -1,5 +1,4 @@
-
-(function(){
+//(function(){
 var x=window.location.hostname;
 
 //*************************************
@@ -24,4 +23,4 @@ function importMainScript(){
      script.src="https://raw.github.com/Manishearth/Manish-Codes/master/StackExchange/MathJaxButtonsScript.js"
      document.body.appendChild(script);
 }
-})();
+//})();
