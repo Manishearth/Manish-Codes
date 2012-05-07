@@ -175,6 +175,18 @@ return function (zEvent) {
 }
 }
 
+window.keyStopEventLambda=function(key){
+return function (zEvent) {
+		//console.log(zEvent);
+        //--- On Alt-K, insert the <kbd> set. Ignore all other keys.
+        if (zEvent.altKey  && ( zEvent.which == key.charCodeAt(0)||zEvent.which == key.toUpperCase().charCodeAt(0))) {
+            zEvent.preventDefault()
+            
+            return false;
+        }
+        return true;
+}
+}
 
 
 
@@ -198,6 +210,7 @@ window.addKeyPressEventLives=function(){
 						continue;
 					}
 					$("textarea.wmd-input").live("keydown", keyPressEventLambda(buttonconfig[i][4],buttonconfig[i][1]));
+					$("textarea.wmd-input").live("keyup keypress", keyStopEventLambda(buttonconfig[i][4]));//Prevent bubbling here to browser
 					buttonconfig[i].keyAdded=true;
 				}
 			}
