@@ -1,12 +1,12 @@
 // ==UserScript==
- // @name Close Offtopic button
- // @version 1.0
- // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
- // @description Adds a self-navigating "Close-offtopic" button to MSO which autocomments
- // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
- // @include http://meta.stackoverflow.com/questions/*
+// @name Close Offtopic button
+// @version 1.0
+// @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
+// @description Adds a self-navigating "Close-offtopic" button to MSO which autocomments
+// @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
+// @include http://meta.stackoverflow.com/questions/*
 
- // ==/UserScript==
+// ==/UserScript==
 
 function with_jquery(f) {
      var script = document.createElement("script");
