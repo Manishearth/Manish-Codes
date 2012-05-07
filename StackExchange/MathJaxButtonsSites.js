@@ -5,7 +5,7 @@
 var x=window.location.origin;
 
 //*************************************
-var sites=["[^\\/]*math[^\\/]*","physics","chemistry","biology","electronics","crypto","[^\\/]*quant","[^\\/]*stats","dsp","cogsci","cs","cstheory"];	  
+var sites=["[^\\/]*math[^\\/]*","physics","chemistry","biology","electronics","crypto","[^\\/]*quant","[^\\/]*stats","dsp","cogsci","cs","[^\\/]*cstheory"];	  
 //*************************************
 
 
