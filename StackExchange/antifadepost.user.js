@@ -1,14 +1,14 @@
 // ==UserScript==
- // @name Post Unfader
- // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
- // @description Allows one to "unfade" downvoted answers by mouseover/click
- // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
- // @include http://*stackoverflow.com/questions/*
- // @include http://superuser.com/questions/*
- // @include http://serverfault.com/questions/*
- // @include http://*stackexchange.com/questions/*
+// @name Post Unfader
+// @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
+// @description Allows one to "unfade" downvoted answers by mouseover/click
+// @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
+// @include http://*stackoverflow.com/questions/*
+// @include http://superuser.com/questions/*
+// @include http://serverfault.com/questions/*
+// @include http://*stackexchange.com/questions/*
 
- // ==/UserScript==
+// ==/UserScript==
 
 
 
