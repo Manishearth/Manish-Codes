@@ -42,6 +42,42 @@ window.clickButtonEventLambda=function(left, right){
 
 }
 
+//Special function for entering and exiting math mode (places cursor after next dollar sign)
+function enterExitMathMode(tid){
+var node=$('#'+tid)[0];
+try{
+var text   = node.value || node.textContent;
+var iEnd      = node.selectionEnd;
+var re=/\$/ig;
+while (m = re.exec(text)) {
+   if(m.index>iEnd){
+    var SE=m.index;
+if(text.charAt(SE+1=="$")){
+SE++
+}
+node.selectionStart=SE;
+node.selectionEnd=SE;
+break;
+   }
+} 
+
+        try {
+            //--- This is a utility function that SE currently provides on its pages.
+            StackExchange.MarkdownEditor.refreshAllPreviews ();
+        }
+        catch (e) {
+            console.warn ("***Userscript error: refreshAllPreviews() is no longer defined!");
+        }
+}catch (e) {
+        console.warn ("***Textarea does not exist");
+	console.log(e); 
+}
+return false;
+
+
+}
+
+
 //Methods:
 
 window.SIify=clickButtonEventLambda("\\:\\mathrm{","}");
@@ -70,6 +106,12 @@ window.buttonconfig={
 	//Big O notation
 	"5 (BigO)":['<span style=style="font-family: MathJax_Caligraphic; ">O</span>',clickButtonEventLambda("$\\mathcal{O}(",")$"),"dollar","","o",/(crypto|cs\.stack|cstheory)/ig,"","Enclose selection in big O notation"],
 	"6 (SansSerif)":['NP',clickButtonEventLambda("$\\mathsf{","}$"),"serify","","s",/(cstheory|cs\.stack)/ig,"","Enclose selection in $\\mathsf{..}$"],
+	
+	
+	
+	//Just keyboard shortcuts
+	
+	"100 (EEMathMode)":['NONE',enterExitMathMode,"eemm","","z",/(stack)/ig,"",""], //Enter and exit math mode
 };
 
 //************************************************
