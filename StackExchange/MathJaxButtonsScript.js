@@ -68,8 +68,8 @@ window.buttonconfig={
 	"1 (DollarElectronics)":["$",clickButtonEventLambda("\\$","\\$"),"dollar","","m",/electronics/ig,"","Enclose in MathJax dollar symbols"],
 	"4 (DDollarElectronics)":["$$",Ddollarify,"Ddollar","","d",/electronics/ig,"","Enclose in MathJax double-dollar symbols"], //keyboard shortcut
 	//Big O notation
-	"5 (BigO)":['<span style=style="font-family: MathJax_Caligraphic; ">O</span>',clickButtonEventLambda("$\\mathcal{O}(",")$"),"dollar","","o",/crypto/ig,"","Enclose selection in big O notation"],
-	"5 (BigO)":['NP',clickButtonEventLambda("$\\mathsf{","}$"),"serify","","s",/(cstheory|cs\.stack)/ig,"","Enclose selection in $\\mathsf{..}$"],
+	"5 (BigO)":['<span style=style="font-family: MathJax_Caligraphic; ">O</span>',clickButtonEventLambda("$\\mathcal{O}(",")$"),"dollar","","o",/(crypto|cs\.stack|cstheory)/ig,"","Enclose selection in big O notation"],
+	"6 (SansSerif)":['NP',clickButtonEventLambda("$\\mathsf{","}$"),"serify","","s",/(cstheory|cs\.stack)/ig,"","Enclose selection in $\\mathsf{..}$"],
 };
 
 //************************************************
@@ -137,7 +137,7 @@ return function (zEvent) {
 
 window.addButtons=function(){
 	for(var i in buttonconfig){
-			if(window.location.host.match(buttonconfig[i][5])&&(buttonconfig[i][6]==""||!window.location.host.match(buttonconfig[i][6]))){
+			if(buttonconfig[i][0]!="NONE"&&window.location.host.match(buttonconfig[i][5])&&(buttonconfig[i][6]==""||!window.location.host.match(buttonconfig[i][6]))){
 				
 				addButton(buttonconfig[i][0],buttonconfig[i][1],buttonconfig[i][2],buttonconfig[i][3],(buttonconfig[i][7]+((buttonconfig[i][4])?" (Alt-"+buttonconfig[i][4].toUpperCase()+")":"")),false);
 			}
