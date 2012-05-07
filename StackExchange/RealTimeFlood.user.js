@@ -1,15 +1,15 @@
 // ==UserScript==
- // @name RealTimeFlood
- // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
- // @description Saves you from clicking the "Load xyz comments" and "Show new posts" buttons
- // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
- // @include http://*stackoverflow.com/*
- // @include http://*superuser.com/*
- // @include http://*serverfault.com/*
- // @include http://*stackexchange.com/*
+// @name RealTimeFlood
+// @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
+// @description Saves you from clicking the "Load xyz comments" and "Show new posts" buttons
+// @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
+// @include http://*stackoverflow.com/*
+// @include http://*superuser.com/*
+// @include http://*serverfault.com/*
+// @include http://*stackexchange.com/*
  
  
- // ==/UserScript==
+// ==/UserScript==
 
 
 
