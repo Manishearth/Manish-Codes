@@ -163,8 +163,6 @@ $(btn).children('span').hover(function(){$(this).css('background','#DEEDFF')},fu
 
 window.keyPressEventLambda=function(key,callback){
 return function (zEvent) {
-		//console.log(zEvent);
-        //--- On Alt-K, insert the <kbd> set. Ignore all other keys.
         if (zEvent.altKey  && ( zEvent.which == key.charCodeAt(0)||zEvent.which == key.toUpperCase().charCodeAt(0))) {
             zEvent.stopPropagation();
             zEvent.preventDefault()
@@ -178,8 +176,7 @@ return function (zEvent) {
 
 window.keyStopEventLambda=function(key){
 return function (zEvent) {
-		//console.log(zEvent);
-        //--- On Alt-K, insert the <kbd> set. Ignore all other keys.
+
         if (zEvent.altKey  && ( zEvent.which == key.charCodeAt(0)||zEvent.which == key.toUpperCase().charCodeAt(0))) {
             zEvent.stopPropagation();
             zEvent.preventDefault()
