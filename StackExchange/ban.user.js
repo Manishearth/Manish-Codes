@@ -1,14 +1,14 @@
 // ==UserScript==
- // @name Ban myself
- // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
- // @description Bans you from all stackexchange sites
- // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
- // @include http://*stackoverflow.com/*
- // @include http://superuser.com/*
- // @include http://serverfault.com/*
- // @include http://*stackexchange.com/*
+// @name Ban myself
+// @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
+// @description Bans you from all stackexchange sites
+// @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
+// @include http://*stackoverflow.com/*
+// @include http://superuser.com/*
+// @include http://serverfault.com/*
+// @include http://*stackexchange.com/*
 
- // ==/UserScript==
+// ==/UserScript==
 
 
 
