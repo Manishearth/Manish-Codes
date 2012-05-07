@@ -1,12 +1,12 @@
 // ==UserScript==
- // @name Flag Offtopic button
- // @version 1.0
- // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
- // @description Adds a self-navigating "Flag-offtopic" button to MSO
- // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
- // @include http://meta.stackoverflow.com/questions/*
+// @name Flag Offtopic button
+// @version 1.0
+// @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
+// @description Adds a self-navigating "Flag-offtopic" button to MSO
+// @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
+// @include http://meta.stackoverflow.com/questions/*
 
- // ==/UserScript==
+// ==/UserScript==
 
 function with_jquery(f) {
      var script = document.createElement("script");
