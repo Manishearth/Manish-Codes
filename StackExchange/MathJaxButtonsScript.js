@@ -167,6 +167,7 @@ return function (zEvent) {
         //--- On Alt-K, insert the <kbd> set. Ignore all other keys.
         if (zEvent.altKey  && ( zEvent.which == key.charCodeAt(0)||zEvent.which == key.toUpperCase().charCodeAt(0))) {
             callback(this.id);
+            zEvent.preventDefault()
             return false;
         }
         return true;
