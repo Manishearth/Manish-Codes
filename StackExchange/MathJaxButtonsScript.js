@@ -1,5 +1,7 @@
+window.MathJaxButtons={};
+with(MathJaxButtons){
 //clickbuttoneventlambda:
-window.clickButtonEventLambda=function(left, right){
+MathJaxButtons.clickButtonEventLambda=function(left, right){
  return function (tid) {
 
 	 	node=$('#'+tid)[0];
@@ -41,20 +43,26 @@ window.clickButtonEventLambda=function(left, right){
 
 
 }
+MathJaxButtons.inlineMath=["$","$"];
+MathJaxButtons.blockMath=["$$","$$"];
+MathJaxButtons.mathRegExClose=/(\$)/ig;
+if(window.location.hostname.match(/electronics/ig)){
+MathJaxButtons.inlineMath=["\\$","\\$"];	
+MathJaxButtons.mathRegExClose=/(\\\$)/ig	
 
-//Special function for entering and exiting math mode (places cursor after next dollar sign)
+}
+
+//Special function for entering and exiting inline math mode (places cursor after next dollar sign)
 function enterExitMathMode(tid){
 var node=$('#'+tid)[0];
 try{
 var text   = node.value || node.textContent;
 var iEnd      = node.selectionEnd;
-var re=/\$/ig;
+var re=MathJaxButtons.mathRegExClose;
 while (m = re.exec(text)) {
-   if(m.index>iEnd){
+   if(m.index>=iEnd){
     var SE=m.index;
-if(text.charAt(SE+1=="$")){
-SE++
-}
+    SE+=m[0].length;
 node.selectionStart=SE;
 node.selectionEnd=SE;
 break;
@@ -78,34 +86,24 @@ return false;
 }
 
 
-//Methods:
-
-window.SIify=clickButtonEventLambda("\\:\\mathrm{","}");
-window.dollarify=clickButtonEventLambda("$","$");
-window.Ddollarify=clickButtonEventLambda("$$","$$");
-window.chemify=clickButtonEventLambda("$\\ce{","}$");
-
-
-
-
 
 //************************************************
 //Configuration:
 //format: [Button HTML text,callback,unique identifier,empty,keyboard shortcut,regex for sitename,regex for NOT sitename(empty string if you don't need this),tooltip]
-window.buttonconfig={
-	"2 (SI)":["SI",SIify,"SI","","s",/(physics|chem|biology|electronics)/ig,"","Format selection as an SI unit"],
-	"1 (Dollar)":["$",dollarify,"dollar","","m",/stack/ig,/electronics/ig,"Enclose in MathJax dollar symbols"],
-	"4 (DoubleDollar)":["$$",Ddollarify,"Ddollar","","",/stack/ig,/electronics/ig,"Enclose in MathJax double-dollar symbols"],
+MathJaxButtons.buttonconfig={
+	"2 (SI)":["SI",clickButtonEventLambda("\\:\\mathrm{","}"),"SI","","s",/(physics|chem|biology|electronics)/ig,"","Format selection as an SI unit"],
+	"1 (Dollar)":[inlineMath[0],clickButtonEventLambda(inlineMath[0],inlineMath[1]),"dollar","","m",/stack/ig,/electronics/ig,"Enclose in MathJax dollar symbols"],
+	"4 (DoubleDollar)":[blockMath[0],clickButtonEventLambda(blockMath[0],blockMath[1]),"Ddollar","","d",/stack/ig,/electronics/ig,"Enclose in MathJax double-dollar symbols"],
 
 	//Special per-site ones:
-	"3 (Chem)":["O<sub>2</sub>",chemify,"chemify","","c",/chemistry/ig,"","Enclose selection in $\ce{...}$"],
+	"3 (Chem)":["O<sub>2</sub>",clickButtonEventLambda("$\\ce{","}$"),"chemify","","c",/chemistry/ig,"","Enclose selection in "+inlineMath[0]+"\ce{...}"+inlineMath[1]],
 	"5 (Phy)":["<b>E</b>",clickButtonEventLambda("\\mathbf{","}"),"vectorfield","","v",/physics/ig,"","Format selection as vector field"],
 	//Electronics.SE needs a backslash
-	"1 (DollarElectronics)":["$",clickButtonEventLambda("\\$","\\$"),"dollar","","m",/electronics/ig,"","Enclose in MathJax dollar symbols"],
-	"4 (DDollarElectronics)":["$$",Ddollarify,"Ddollar","","d",/electronics/ig,"","Enclose in MathJax double-dollar symbols"], //keyboard shortcut
+//	"1 (DollarElectronics)":["$",clickButtonEventLambda("\\$","\\$"),"dollar","","m",/electronics/ig,"","Enclose in MathJax dollar symbols"],
+//	"4 (DDollarElectronics)":["$$",Ddollarify,"Ddollar","","d",/electronics/ig,"","Enclose in MathJax double-dollar symbols"], //keyboard shortcut
 	//Big O notation
-	"5 (BigO)":['NONE',clickButtonEventLambda("$\\mathcal{O}(",")$"),"BigO","","o",/(crypto|cs\.stack|cstheory)/ig,"","Enclose selection in big O notation"],
-	"6 (SansSerif)":['NP',clickButtonEventLambda("$\\mathsf{","}$"),"serify","","s",/(cstheory|cs\.stack)/ig,"","Enclose selection in $\\mathsf{..}$"],
+	"5 (BigO)":['NONE',clickButtonEventLambda(inlineMath[0]+"\\mathcal{O}(",")"+inlineMath[1]),"BigO","","o",/(crypto|cs\.stack|cstheory)/ig,/electronics.stack/ig,"Enclose selection in big O notation"],
+	"6 (SansSerif)":['NP',clickButtonEventLambda(inlineMath[0]+"\\mathsf{","}"+inlineMath[1]),"serify","","s",/(cstheory|cs\.stack)/ig,/electronics.stack/ig,"Enclose selection in "+inlineMath[0]+"\\mathsf{..}"+inlineMath[1]],
 	
 	
 	
@@ -121,7 +119,7 @@ window.buttonconfig={
 
 
 
-window.addButton=function(text,callback,identify,pic,tooltip,force){
+MathJaxButtons.addButton=function(text,callback,identify,pic,tooltip,force){
 //Callback must take id of textarea as argument.
 force = typeof force !== 'undefined' ? force : false;
 var tas=force?$('.wmd-container'):$('.wmd-container').not(".canhasbutton"+identify);
@@ -161,7 +159,7 @@ $(btn).children('span').hover(function(){$(this).css('background','#DEEDFF')},fu
 
 
 
-window.keyPressEventLambda=function(key,callback){
+MathJaxButtons.keyPressEventLambda=function(key,callback){
 return function (zEvent) {
         if (zEvent.altKey  && ( zEvent.which == key.charCodeAt(0)||zEvent.which == key.toUpperCase().charCodeAt(0))) {
             zEvent.stopPropagation();
@@ -174,7 +172,7 @@ return function (zEvent) {
 }
 }
 
-window.keyStopEventLambda=function(key){
+MathJaxButtons.keyStopEventLambda=function(key){
 return function (zEvent) {
 
         if (zEvent.altKey  && ( zEvent.which == key.charCodeAt(0)||zEvent.which == key.toUpperCase().charCodeAt(0))) {
@@ -190,7 +188,7 @@ return function (zEvent) {
 
 
 
-window.addButtons=function(){
+MathJaxButtons.addButtons=function(){
 	for(var i in buttonconfig){
 			if(buttonconfig[i][0]!="NONE"&&window.location.host.match(buttonconfig[i][5])&&(buttonconfig[i][6]==""||!window.location.host.match(buttonconfig[i][6]))){
 				
@@ -199,7 +197,7 @@ window.addButtons=function(){
 	}
 }
 
-window.addKeyPressEventLives=function(){
+MathJaxButtons.addKeyPressEventLives=function(){
 
 		for(var i in buttonconfig){
 			if(buttonconfig[i][4]!=""){
@@ -223,7 +221,7 @@ window.addKeyPressEventLives=function(){
 
 
 
-window.waitUntilExists=function(wb,wfn){
+MathJaxButtons.waitUntilExists=function(wb,wfn){
 	if(wb.length==0){
    		waitFunc=function(){waitUntilExists(wb,wfn)};
 		setTimeout(waitFunc,20);
@@ -233,13 +231,13 @@ window.waitUntilExists=function(wb,wfn){
 }
 
 
-
+}
 
 
 
 
 $(document).ready(function(){
-	addButtons()
-	addKeyPressEventLives()
-	$("textarea.wmd-input").live("focus",addButtons);
+	MathJaxButtons.addButtons()
+	MathJaxButtons.addKeyPressEventLives()
+	$("textarea.wmd-input").live("focus",MathJaxButtons.addButtons);
 });
