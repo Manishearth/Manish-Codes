@@ -1,14 +1,14 @@
 // ==UserScript==
- // @name Literal tab in edit box
- // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
- // @description Allows proper tabbing in editboxes
- // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
- // @include http://stackoverflow.com/*
- // @include http://codereview.stackexchange.com/*
- // @include http://programmers.stackexchange.com/*
- // @include http://stackapps.stackexchange.com/*
- // @version 1.0
- // ==/UserScript==
+// @name Literal tab in edit box
+// @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
+// @description Allows proper tabbing in editboxes
+// @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
+// @include http://stackoverflow.com/*
+// @include http://codereview.stackexchange.com/*
+// @include http://programmers.stackexchange.com/*
+// @include http://stackapps.stackexchange.com/*
+// @version 1.0
+// ==/UserScript==
 
 
 //modified from http://en.wikipedia.org/wiki/User:AoV2/tabs_in_textarea

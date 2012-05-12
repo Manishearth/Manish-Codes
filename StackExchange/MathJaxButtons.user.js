@@ -1,11 +1,11 @@
 // ==UserScript==
- // @name MathJax buttons
- // @version 2.1.0
- // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
- // @description Adds math buttons to the SEeditor, including a "$" button, a "$$" button, an SI-unit-ify button (on science sites), and a "\ce{}" button on chem.SE
- // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
- // @include http://*.stackexchange.com/*
- // ==/UserScript==
+// @name MathJax buttons
+// @version 2.2.2
+// @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
+// @description Adds math buttons to the SEeditor, including a "$" button, a "$$" button, an SI-unit-ify button (on science sites), and a "\ce{}" button on chem.SE
+// @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
+// @include http://*.stackexchange.com/*
+// ==/UserScript==
 
 
 //Some functionality copied from https://gist.github.com/2583075. Thanks, Brock.
