@@ -25,7 +25,39 @@
 
 
 */
+window.ThumbnailUpload={};
+with(ThumbnailUpload){
+ThumbnailUpload.modalParams=[350,200];//[width,height]
 
+ThumbnailUpload.showModal=function(tid){
+	$('<div id="thumbnail-upload-shadow" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:1000;opacity:0.5;background-color:black"></div>').appendTo('body');
+	$('<div id="thumbnail-upload-dialog" class="wmd-prompt-dialog" style="z-index:1001;position:absolute;left:'+(window.innerWidth-modalParams[0])/2+'px;top:'+(window.innerHeight-modalParams[1])/2+'px;width:'+modalParams[0]+'px;height:'+modalParams[1]+'px;"><iframe id="thumbnail-upload-iframe" style="width:100%;height:100%"></iframe></div>').appendTo('body');
+	ThumbnailUpload.iframeWin=$('#thumbnail-upload-iframe')[0].contentWindow;
+
+	 var script = iframeWin.document.createElement("script");
+     script.type = "text/javascript";
+     script.src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+     iframeWin.document.head.appendChild(script);
+	 
+
+	 var script = iframeWin.document.createElement("script");
+     script.type = "text/javascript";
+     script.textContent="("+ThumbnailUpload.childScripts.toString()+")()";
+     iframeWin.document.body.appendChild(script);
+	
+}
+
+ThumbnailUpload.childScripts=function(){
+	document.write("aaaaa");
+	$("<div>AAAAA</div>").appendTo(document);
+	
+}
+
+
+
+	
+	
+}
 
 
 })();

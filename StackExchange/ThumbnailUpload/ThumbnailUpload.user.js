@@ -5,12 +5,13 @@
 // @description Allows uploading of linked thumbnails for images
 // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
 // @include http://*.stackexchange.com/*
-// @include http://*.stackoverflow.com/*
-// @include http://*.stackapps.com/*
+// @include http://*stackoverflow.com/*
+// @include http://*stackapps.com/*
 // ==/UserScript==
 
 
 (function(){
+
 	 var d=new Date();
      var script = document.createElement("script");
      script.type = "text/javascript";
