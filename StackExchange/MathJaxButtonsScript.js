@@ -104,11 +104,11 @@ MathJaxButtons.buttonconfig={
 	//Big O notation
 	"5 (BigO)":['NONE',clickButtonEventLambda(inlineMath[0]+"\\mathcal{O}(",")"+inlineMath[1]),"BigO","","o",/(crypto|\/cs\.stack|cstheory)/ig,/electronics.stack/ig,"Enclose selection in big O notation"],
 	"6 (SansSerif)":['NP',clickButtonEventLambda(inlineMath[0]+"\\mathsf{","}"+inlineMath[1]),"serify","","s",/(cstheory|\/cs\.stack)/ig,/electronics.stack/ig,"Enclose selection in "+inlineMath[0]+"\\mathsf{..}"+inlineMath[1]],
-	
-	
-	
+
+
+
 	//Just keyboard shortcuts
-	
+
 	"100 (EEMathMode)":['NONE',enterExitMathMode,"eemm","","z",/(stack)/ig,"",""], //Enter and exit math mode
 };
 
@@ -191,7 +191,7 @@ return function (zEvent) {
 MathJaxButtons.addButtons=function(){
 	for(var i in buttonconfig){
 			if(buttonconfig[i][0]!="NONE"&&window.location.host.match(buttonconfig[i][5])&&(buttonconfig[i][6]==""||!window.location.host.match(buttonconfig[i][6]))){
-				
+
 				addButton(buttonconfig[i][0],buttonconfig[i][1],buttonconfig[i][2],buttonconfig[i][3],(buttonconfig[i][7]+((buttonconfig[i][4])?" (Alt-"+buttonconfig[i][4].toUpperCase()+")":"")),false);
 			}
 	}
@@ -206,8 +206,11 @@ MathJaxButtons.addKeyPressEventLives=function(){
 					if(buttonconfig[i].keyAdded){
 						continue;
 					}
+					if(!$("textarea.wmd-input").data('KeyEvents'+buttonconfig[i][4])){
 					$("textarea.wmd-input").live("keydown", keyPressEventLambda(buttonconfig[i][4],buttonconfig[i][1]));
 					$("textarea.wmd-input").live("keyup keypress", keyStopEventLambda(buttonconfig[i][4]));//Prevent bubbling here to browser
+					$("textarea.wmd-input").data('KeyEvents'+buttonconfig[i][4],"1")
+					}
 					buttonconfig[i].keyAdded=true;
 				}
 			}
