@@ -81,10 +81,12 @@ $('form').submit(function(){$('.ac_loading').show();return true;});
 	
 	
 window.closeDialog=function(result){
+	$('.ac_loading').hide()
 	console.log(["cD",result]);
 	
 }
 window.displayUploadError=function(error){
+	$('.ac_loading').hide()
 	console.log(["dUE",error]);
 	
 }
