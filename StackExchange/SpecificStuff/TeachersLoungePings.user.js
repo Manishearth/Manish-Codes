@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name Summon the Gods
-// @version 1.0.2
+// @version 1.0.3
 // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
 // @description Lets mods bug the overlords from TL
 // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
