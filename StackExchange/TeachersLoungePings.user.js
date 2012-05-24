@@ -18,7 +18,7 @@ function with_jquery(f) {
 with_jquery(function($){
 $('document').ready(function(){
 
-$('#input').keyup(function(){this.value=this.value.replace(/community mods\:/ig,"@RebeccaChernoff, @Shog9, @AnnaLear, @Aarthi, @GraceNote, @RobertCartaino: ").replace(/dev(eloper)?s\:/ig,"@MarcGravell, @balpha, @waffles:")})
+$('#input').keyup(function(){this.value=this.value.replace(/community mods\:/ig,"@RebeccaChernoff, @Shog9, @AnnaLear, @Aarthi, @GraceNote, @RobertCartaino:").replace(/dev(eloper)?s\:/ig,"@MarcGravell, @balpha, @waffles:")})
 
 });
 });
