@@ -18,7 +18,8 @@ function with_jquery(f) {
 with_jquery(function($){
 $('document').ready(function(){
 
-$('#input').keyup(function(){this.value=this.value.replace(/community mods\:/ig,"@RebeccaChernoff, @Shog9, @AnnaLear, @Aarthi, @GraceNote, @RobertCartaino: ").replace(/dev(eloper)?s\:/ig,"@MarcGravell, @balpha, @waffles:")})
+$('#input').keyup(function(){this.value=this.value.replace(/^community mods\:/ig,"@RebeccaChernoff, @Shog9, @AnnaLear, @Aarthi, @GraceNote, @RobertCartaino: ").replace(/^dev(eloper)?s\:/ig,"@MarcGravell, @balpha, @waffles:")})
 
+//Ping ALL the mods: var a="";$('.sidebar-widget div.avatar img').each(function(){a+="@"+this.title+", "});a=a.slice(0,a.length-2);a+=": "
 });
 });
