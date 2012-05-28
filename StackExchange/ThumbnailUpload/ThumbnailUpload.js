@@ -95,19 +95,19 @@ window.closeDialog=function(result){
 	}
 	switch(id){
 		case "bypass":
-			imgText=["![%t%][%n%]",result];	
+			imgText=[" ![%t%][%n%] ",result];	
 			break;
 		case "large":
-			imgText=[" ![%t%][%n%]",result.replace(/\.([^\.]*)$/, 'l.$1')];
+			imgText=[" ![%t%][%n%] ",result.replace(/\.([^\.]*)$/, 'l.$1')];
 			break;
 		case "medium":
-			imgText=[" ![%t%][%n%]",result.replace(/\.([^\.]*)$/, 'm.$1')];
+			imgText=[" ![%t%][%n%] ",result.replace(/\.([^\.]*)$/, 'm.$1')];
 			break;	
 		case "small":
-			imgText=[" ![%t%][%n%]",result.replace(/\.([^\.]*)$/, 's.$1')];
+			imgText=[" ![%t%][%n%] ",result.replace(/\.([^\.]*)$/, 's.$1')];
 			break;	
 		default:
-			imgText=[" <img src='"+result+"' title=\"%t%\" height='"+$("#thumbupload-option-height").attr('value')+"' width='"+$("#thumbupload-option-width").attr('value')+"'>",""];
+			imgText=[" <img src='"+result+"' title=\"%t%\" height='"+$("#thumbupload-option-height").attr('value')+"' width='"+$("#thumbupload-option-width").attr('value')+"'> ",""];
 			break;																																				 
 	}
 	if(imgText[1]){
@@ -115,7 +115,7 @@ window.closeDialog=function(result){
 		tEnd+="\n  ["+max+"]: "+imgText[1];
 
 	}
-	if($('#thumbupload-option-linkify').attr('selected')){
+	if($('#thumbupload-option-linkify').attr('checked')){
 		imgText[0]=" ["+imgText[0]+"]["+(++max)+"]";
 		tEnd+="\n  ["+(max)+"]: "+result;		
 	}
