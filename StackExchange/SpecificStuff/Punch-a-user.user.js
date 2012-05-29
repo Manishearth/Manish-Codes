@@ -55,7 +55,7 @@ with_jquery(function($) {
         
         keen.sprite = function(name) {keen.css(sprites[name]);}
         keen.votecount = votecount;
-        keen.sig = votecount.closest("tr").find(".post-signature:last");
+        keen.sig = votecount.parents('.user-info,.gravatar');
         
         keen.step = 0;
         keen.walking = false;
@@ -185,7 +185,8 @@ with_jquery(function($) {
         keen = make_keen(keen, $(this))
         keen.fall_in()
     };
-    $('<a href="javascript:void(0)">Punch</a>').click(do_the_deed).mouseover(function(){return false;}).appendTo('[class^=user-gravatar]')
+	$('<br>').appendTo('[class^=gravatar] div:first');
+    $('<a href="javascript:void(0)">Punch</a>').click(do_the_deed).mouseover(function(){return false;}).appendTo('[class^=user-gravatar],[class^=gravatar] div:first')
 
     
 
