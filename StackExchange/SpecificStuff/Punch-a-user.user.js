@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           keen-vote
+// @name           Punch-a-user
 // @namespace      Manishearth
 // @description    Allow you to summon Commander Keen and have him punch users
 // @include        http://stackoverflow.com/*
