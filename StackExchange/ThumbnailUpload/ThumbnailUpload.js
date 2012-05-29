@@ -95,12 +95,14 @@ $('[for=thumbupload-option-small],[for=thumbupload-option-large]').click(functio
 $('#thumbupload-optionbx-custom').click(function(){
 												 $('[name="thumbupload-options-bx"]').attr('checked',false);
 												 $('input[type=radio]').attr('checked',false);
+												 if(!$("#thumbupload-option-width")[0].focused){
 												 $("#thumbupload-option-height").focus()
+												 }
 											});
 
-$('#thumbupload-option-width').click(function(){return false;})
-
-
+$('#thumbupload-option-width').click( function(){$("#thumbupload-option-width").focus();})
+$('#thumbupload-option-width').focus(function(){this.focused=true;})
+$('#thumbupload-option-width').blur(function(){this.focused=false;})
 window.closeDialog=function(result){
 	$('.ac_loading').hide();
 	node=window.parent.$('#'+window.parent.ThumbnailUpload.tid)[0];
