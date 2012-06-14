@@ -41,7 +41,7 @@ $('.question .post-menu a:last').on("click",function(event){
 		},10);
 	});
 
-
+$('#question a.vote-down-off:not(.vote-down-on)').click();
 	$('#comments-link-'+qid)[0].click();
 	setTimeout(function(){
 		$('#add-comment-'+qid).find('textarea')[0].value=offtopicReason;
