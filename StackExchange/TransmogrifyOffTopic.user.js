@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name Transmogrify Offtopic button
-// @version 1.0
+// @version 1.0.1
 // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
 // @description Adds a self-navigating "Close-offtopic" button to MSO which autocomments
 // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
@@ -18,7 +18,7 @@ function with_jquery(f) {
 
 with_jquery(function($){
 $('document').ready(function(){
-window.taglines=["That's a fascinating problem, but I really have no idea how to solve it. Have this great Calvin & Hobbes strip instead!","Hmm, you seem to be in the wrong place for this question. Fortunately, I have something which may help you:","Isn't programming fun? I'll tell you what else is fun. Calvin&Hobbes!"];
+window.taglines=["I'm completely clueless. Please accept this Calvin & Hobbes strip as a gesture of shame and apology.","This is a great question - I'm completely dumbfounded as to what its solution is. But I do have a Calvin & Hobbes strip!","I have no idea. But here's a Calvin & Hobbes strip to help console you.","I have no idea. However, legend has it that reading Calvin & Hobbes strips will increase your problem solving ability so maybe that can help you.","I'm so glad you asked me that, but I have no clue how to solve it. Have a Calvin & Hobbes strip instead!","That's a fascinating problem, but I really have no idea how to solve it. Have this great Calvin & Hobbes strip instead!","Hmm, you seem to be in the wrong place for this question. Fortunately, I have something which may help you:","Isn't programming fun? I'll tell you what else is fun. Calvin&Hobbes!"];
 if($('.question .post-menu a[id^="close-question"]').length>0&&$('.question .post-menu a[id^="close-question"]')[0].innerHTML.indexOf("reopen")==-1){
 window.qid=$('.question').attr('data-questionid');
 $('<span class="lsep">|</span>').appendTo('.question .post-menu');
