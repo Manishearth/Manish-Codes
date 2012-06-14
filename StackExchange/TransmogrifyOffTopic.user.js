@@ -22,7 +22,7 @@ window.taglines=["That's a fascinating problem, but I really have no idea how to
 if($('.question .post-menu a[id^="close-question"]').length>0&&$('.question .post-menu a[id^="close-question"]')[0].innerHTML.indexOf("reopen")==-1){
 window.qid=$('.question').attr('data-questionid');
 $('<span class="lsep">|</span>').appendTo('.question .post-menu');
-$('.question .post-menu a:last').clone().attr("id","close-offtopic").attr("title","Comment ans vote-to-close as off topic").appendTo('.question .post-menu');
+$('.question .post-menu a:last').clone().attr("id","close-offtopic").attr("title","Answer with a Calvin and Hobbes strip, along with a closevote.").appendTo('.question .post-menu');
 $('.question .post-menu a:last')[0].innerHTML="transmogrify";
 $('.question .post-menu a:last').on("click",function(event){
          $('.question .post-menu a[id^="close-question"]')[0].click();
