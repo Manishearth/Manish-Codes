@@ -58,6 +58,8 @@ window.getImg=function(callback){
 	
 $('#wmd-input')[0].value=taglines[Math.floor(taglines.length*Math.random())]+"\n\n![enter image description here][1]\n\n  [1]: "+url;
 $('#communitymode').click();
+$('#question a.vote-down-off:not(.vote-down-on)').click();
+StackExchange.MarkdownEditor.refreshAllPreviews();
 });
 }
 });

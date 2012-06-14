@@ -112,7 +112,7 @@ window.closeDialog=function(result){
 	var tBeg=val.substr(0,iS);
 	var title=val.substr(iS,iE-iS);
 	var tEnd=val.substr(iE,node.value.length-iE);
-	var reg=/\s\s\[(\d)\]:\shttp\:\/\//ig
+	var reg=/\s\s\[(\d+)\]:\shttp\:\/\//ig
 	var match;
 	var max=0;
 	while(match=reg.exec(val)){
