@@ -18,7 +18,7 @@ function with_jquery(f) {
 
 with_jquery(function($){
 $('document').ready(function(){
-window.taglines=["That's a fascinating problem, but I really have no idea how to solve it. Have this great Calvin & Hobbes strip instead!"];
+window.taglines=["That's a fascinating problem, but I really have no idea how to solve it. Have this great Calvin & Hobbes strip instead!","Hmm, you seem to be in the wrong place for this question. Fortunately, I have something which may help you:","Isn't programming fun? I'll tell you what else is fun. Calvin&Hobbes!"];
 if($('.question .post-menu a[id^="close-question"]').length>0&&$('.question .post-menu a[id^="close-question"]')[0].innerHTML.indexOf("reopen")==-1){
 window.qid=$('.question').attr('data-questionid');
 $('<span class="lsep">|</span>').appendTo('.question .post-menu');
@@ -28,21 +28,6 @@ $('.question .post-menu a:last').on("click",function(event){
          $('.question .post-menu a[id^="close-question"]')[0].click();
 
 
-window.getImg=function(callback){
-	function pad(number){
-		if(number<10){
-			return "0"+""+number;	
-		}
-			return number+"";
-	}
-	var start=new Date('August 25, 2003').getTime();
-	var daydiff=(new Date().getTime()-start)/(1000*60*60*24)
-	var date=new Date()
-	date.setTime(start+((1000*60*60*24)*parseInt(daydiff*Math.random())));
-	var dateStr=date.getFullYear()+"." + pad(date.getMonth() + 1) +"."+pad(date.getDate());
-	var url="http://comics.dp.cx/"+dateStr+"/Calvin%20and%20Hobbes-"+dateStr+".gif";
-	$("<img src='"+url+"' onerror='(function(){if($(this).attr(\"data-ping\")){}else{$(this).remove();getImg("+callback+");}})();' onload='(function(){if($(this).attr(\"data-ping\")){}else{$(this).attr(\"data-ping\",true);"+callback+"()}})();'>");
-}
 	function pad(number){
 		if(number<10){
 			return "0"+""+number;	
