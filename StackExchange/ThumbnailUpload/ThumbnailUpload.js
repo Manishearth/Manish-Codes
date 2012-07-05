@@ -131,13 +131,14 @@ window.closeDialog=function(result){
 			imgText=["![%t%][%n%]",result];	
 			break;
 		case "large":
-			imgText=["![%t%][%n%]",result.replace(/\.([^\.]*)$/, 'l.$1')];
+			//imgText=["![%t%][%n%]",result.replace(/\.([^\.]*)$/, 'l.$1')];
+			imgText=["![%t%][%n%]",result.replace(/\.([^\.]*)$/, 'l.jpg')];
 			break;
 		case "medium":
-			imgText=["![%t%][%n%]",result.replace(/\.([^\.]*)$/, 'm.$1')];
+			imgText=["![%t%][%n%]",result.replace(/\.([^\.]*)$/, 'm.jpg')];
 			break;	
 		case "small":
-			imgText=["![%t%][%n%]",result.replace(/\.([^\.]*)$/, 's.$1')];
+			imgText=["![%t%][%n%]",result.replace(/\.([^\.]*)$/, 's.jpg')];
 			break;	
 		default:
 			imgText=["<img src='"+result+"' title=\"%t%\" height='"+$("#thumbupload-option-height").attr('value')+"' width='"+$("#thumbupload-option-width").attr('value')+"'>",""];

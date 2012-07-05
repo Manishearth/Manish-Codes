@@ -1,5 +1,7 @@
 {
   "name": "StackExchange directory file holder",
-  "manifest_version": 2,
-  "version": "1.0"
+  "version": "1.0",
+  "manifest_version":2,
+  "web_accessible_resources":["ThumbnailUpload/ThumbnailUpload.js","chrome-extension://ijpnpkjpigehigmgkcdlflflpibgklbe/ThumbnailUpload/ThumbnailUpload.js"],
+  "permissions": ["http://*/*"]
 }
