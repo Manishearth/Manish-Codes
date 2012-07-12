@@ -5,6 +5,7 @@
 // @description Adds math buttons to the SEeditor, including a "$" button, a "$$" button, an SI-unit-ify button (on science sites), and a "\ce{}" button on chem.SE
 // @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html) 
 // @include http://*.stackexchange.com/*
+// @exclude http://chat.stackexchange.com/*
 // ==/UserScript==
 
 
