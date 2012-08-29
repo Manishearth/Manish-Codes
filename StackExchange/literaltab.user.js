@@ -25,7 +25,7 @@
  with_jquery(function($){
 
 function intercept(e){
- if(e.keyCode == 9) { // U+0009 CHARACTER TABULATION
+ if(e.keyCode == 9) { // U+0009 CHARACTER TAB
   insertAtCaret(this,"\t")
 		return false;		
 		}		
