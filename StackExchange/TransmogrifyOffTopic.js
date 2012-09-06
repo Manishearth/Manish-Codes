@@ -1,5 +1,4 @@
 
-
 function with_jquery(f) {
      var script = document.createElement("script");
      script.type = "text/javascript";
@@ -17,7 +16,7 @@ $('<span class="lsep">|</span>').appendTo('.question .post-menu');
 $('.question .post-menu a:last').clone().attr("id","close-offtopic").attr("title","Answer with a Calvin and Hobbes strip, along with a closevote.").appendTo('.question .post-menu');
 $('.question .post-menu a:last')[0].innerHTML="transmogrify";
 $('.question .post-menu a:last').on("click",function(event){
-         $('.question .post-menu a[id^="close-question"]')[0].click();
+         $('.question .post-menu a[id^="close-question"]').click();
 
 
 	function pad(number){
