@@ -4,21 +4,30 @@
 # License: CC-BY-SA
 # You are free to modify and/or redistribute as long as the original author is credited and you redistribute under CC-BY-SA
 #
-# Version: 1.0.2 (Beta, not been tested yet)
+# Version: 1.1 (Beta, not been tested yet)
 #
 
 
 
+clear
 echo -e "Welcome to the IITB Proxy setting manager for Ubuntu!\nThis script was brought to you by by Manish Goregaokar\n\n\nOK, let's start. First lets get a few things out of our way:"
 echo -e "\nPlease authenticate sudo (use your Ubuntu login password). It should display 'Thank you!' if the authentication completes. If not, restart the script:"
 sudo echo "Thank you!"
+wd=`pwd`
+if [[ $1 == "bypass" || $1 == "input" ]]; then
+	username=$2
+	pass=$3
+	a1=$1
+	passe=${pass//\@/\%40}
+
+else
 read -p "Enter LDAP username:" username
 stty -echo
 echo "Password:"
 
 read pass
 stty echo
-
+fi
 
 passe=${pass//\@/\%40}
 
@@ -38,6 +47,7 @@ echo -e "\n\nPlease choose from the following options:\n\n\
 11) Turn only Firefox proxy setting ON\n\
 12) Turn only Firefox proxy setting OFF\n\
 13) Install simplecpp\n\
+14) Install geany\n\
 14) Quit\n\nType your option and hit enter:"	
 main_menu_read
 
@@ -61,7 +71,8 @@ case "$menuA" in
 11)proxy_firefox_on;;
 12) proxy_firefox_off;;
 13) install_simplecpp;;
-14) exit;;
+14) install_geany;;
+15) exit;;
 *) echo -e "Invalid option\nTry again:";main_menu_read;;
 
 esac
@@ -72,17 +83,41 @@ main_menu_disp
 
 wholeshebang(){
 
+
+if [[ $a1 != "bypass" ]]; then
+
+
 echo -e "Setting APT Proxy"	
 proxy_apt_on
 echo -e "\n\n"
-read -p "The next step is installing and/or configuring Synaptic Package Manager. This is purely optional, just that Synaptic is less error-prone than USC (which sometimes takes forever to install stuff on a proxy). Note that synaptic is less user-friendly than USC. Would you like to install it? (y/n) " a
-if [[ $a != "Y" && $a != "y" ]]; then
-        echo -e "OK, no problem\n "
-else
 
-install_synaptic
-proxy_synaptic_on
+	cd ~/Desktop
+	touch continueproxy.sh
+	chmod 755 continueproxy.sh
+	echo "bash "$wd"/"$0" bypass "$username" "$pass>continueproxy.sh
+	echo "rm continueproxy.sh">>continueproxy.sh
+	echo -e "We need to restart now. Once we have done so, please double-click continueproxy.sh on the desktop and select \"Run in terminal\", it will resume this process. Would you like to restart now? (y/n)"
+	read a
+	if [[ $a != "Y" && $a != "y" ]]; then
+        exit
+        cd $wd
+	else
+		shutdown -r now
+	fi
+	
 fi
+
+#No need to ask for synaptic, if people know what it is let them install using the menu options
+#echo -e "\n\n"
+#read -p "The next step is installing and/or configuring Synaptic Package Manager. This is purely optional, just that Synaptic is less error-prone than USC (which sometimes takes forever to install stuff on a proxy). Note that synaptic is less user-friendly than USC. Would you like to install it? (y/n) " a
+#if [[ $a != "Y" && $a != "y" ]]; then
+#        echo -e "OK, no problem\n "
+#else
+#
+#install_synaptic
+#proxy_synaptic_on
+#fi
+echo -e "\n\n"
 
 browser_shebang
 
@@ -108,7 +143,7 @@ sudo cp temp.txt /etc/apt/apt.conf.d/02proxy
 rm temp.txt
 export http_proxy="http://"username":"passe"@netmon.iitb.ac.in:80" 
 clear
-echo -e "\nAlright, I have finished setting up the proxy for Ubuntu Software Center. You can now install stuff if you wish\n\n"
+echo -e "\nAlright, I have finished setting up the proxy for Ubuntu Software Center. You can now install stuff if you wish, after a restart\n\n"
 
 }
 proxy_apt_off(){
@@ -282,7 +317,7 @@ proxy_allbrowsers_on(){
 	 gsettings set org.gnome.system.proxy.http authentication-user $username
 
 	 gsettings set org.gnome.system.proxy.http use-authentication true
-
+	cd $wd
 
 	#echo -e "\n\nDone!\n\n Now, we want to ensure if Firefox is using the proxy correctly. I shall open firefox, please go to Edit>Preferences>Andvanced>Network, click 'Settings' under 'Connection', and ensure that 'Use system proxy settings' is selected. Click OK, close, and close firefox.\n\nPlease press enter to open firefox:"
 	#read 
@@ -345,12 +380,18 @@ fi
 
 install_chrome(){
 		echo -e "Please wait while I install Chrome.\n\n"
-		echo -e "Please wait while I install Chrome.\n\n"
 		sudo apt-get install google-chrome-stable -y
 		clear
 		echo -e "\n\n Done!\n"
 }
 
+
+install_geany(){
+		echo -e "Please wait while I install geany.\n\n"
+		sudo apt-get install geany -y
+		clear
+		echo -e "\n\n Done!\n"
+}
 install_chromium(){
 		echo -e "Please wait while I install Chromium.\n\n"
 		sudo apt-get install chromium-browser -y
@@ -367,17 +408,21 @@ sudo apt-get install libx11-dev -y
 sudo apt-get install g++ -y
 clear
 echo -e "\n\n Installing simplecpp...\n\n"
-cp	.~/Downloads/simplecpp.tar	~/simplecpp.tar
+cp	./Downloads/simplecpp.tar	~/simplecpp.tar
 cd ~
 tar -xvf ~/simplecpp.tar
 cd simplecpp
 sh configure.sh
 echo "alias s++='~/simplecpp/s++'">~/.bash_aliases
 clear
+cd $wd
 echo -e "\n\nDone!! \n Enjoy simplecpp! (You may have to open a new terminal to get it to work for the first time)"
 
 }
 
 
+	if [[ $1 == "bypass" ]]; then
+			wholeshebang
+	fi
 main_menu_disp
 
