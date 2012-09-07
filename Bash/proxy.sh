@@ -96,9 +96,9 @@ fi
 }
 
 proxy_apt_on(){
-echo "Acquire::http::proxy \"http://$username:$passe@netmon.iitb.ac.in:80/\";\n\
-Acquire::https::proxy \"https://$username:$passe@netmon.iitb.ac.in:80/\";\n\
-Acquire::ftp::proxy \"ftp://$username:$passe@netmon.iitb.ac.in:80/\";">temp.txt
+echo "Acquire::http::proxy \"http://$username:$passe@netmon.iitb.ac.in:80/\";\
+Acquire::https::proxy \"http://$username:$passe@netmon.iitb.ac.in:80/\";\
+Acquire::ftp::proxy \"http://$username:$passe@netmon.iitb.ac.in:80/\";">temp.txt
 sudo cp temp.txt /etc/apt/apt.conf
 sudo cp temp.txt /etc/apt/apt.conf.d/40proxy
 sudo cp temp.txt /etc/apt/apt.conf.d/02proxy
@@ -367,7 +367,7 @@ sudo apt-get install libx11-dev -y
 sudo apt-get install g++ -y
 clear
 echo -e "\n\n Installing simplecpp...\n\n"
-mv	.~/Downloads/simplecpp.tar	~
+cp	.~/Downloads/simplecpp.tar	~/simplecpp.tar
 cd ~
 tar -xvf ~/simplecpp.tar
 cd simplecpp
