@@ -14,20 +14,14 @@ echo -e "Welcome to the IITB Proxy setting manager for Ubuntu!\nThis script was 
 echo -e "\nPlease authenticate sudo (use your Ubuntu login password). It should display 'Thank you!' if the authentication completes. If not, restart the script:"
 sudo echo "Thank you!"
 wd=`pwd`
-if [[ $1 == "bypass" || $1 == "input" ]]; then
-	username=$2
-	pass=$3
-	a1=$1
-	passe=${pass//\@/\%40}
 
-else
 read -p "Enter LDAP username:" username
 stty -echo
 echo "Password:"
 
 read pass
 stty echo
-fi
+
 
 passe=${pass//\@/\%40}
 
@@ -84,28 +78,11 @@ main_menu_disp
 wholeshebang(){
 
 
-if [[ $a1 != "bypass" ]]; then
-
 
 echo -e "Setting APT Proxy"	
 proxy_apt_on
 echo -e "\n\n"
 
-	cd ~/Desktop
-	touch continueproxy.sh
-	chmod 755 continueproxy.sh
-	echo "bash "$wd"/"$0" bypass "$username" "$pass>continueproxy.sh
-	echo "rm continueproxy.sh">>continueproxy.sh
-	echo -e "We need to restart now. Once we have done so, please double-click continueproxy.sh on the desktop and select \"Run in terminal\", it will resume this process. Would you like to restart now? (y/n)"
-	read a
-	if [[ $a != "Y" && $a != "y" ]]; then
-        exit
-        cd $wd
-	else
-		shutdown -r now
-	fi
-	
-fi
 
 #No need to ask for synaptic, if people know what it is let them install using the menu options
 #echo -e "\n\n"
@@ -259,7 +236,7 @@ install_synaptic(){
 
         echo -e "\n\nPlease wait while I install Synaptic.\n\n"
         
-        sudo apt-get install synaptic -y
+        install_aptget synaptic
 		clear
 		echo -e
 }
@@ -380,7 +357,7 @@ fi
 
 install_chrome(){
 		echo -e "Please wait while I install Chrome.\n\n"
-		sudo apt-get install google-chrome-stable -y
+		install_aptget google-chrome-stable
 		clear
 		echo -e "\n\n Done!\n"
 }
@@ -388,13 +365,13 @@ install_chrome(){
 
 install_geany(){
 		echo -e "Please wait while I install geany.\n\n"
-		sudo apt-get install geany -y
+		install_aptget geany
 		clear
 		echo -e "\n\n Done!\n"
 }
 install_chromium(){
 		echo -e "Please wait while I install Chromium.\n\n"
-		sudo apt-get install chromium-browser -y
+		install_aptget chromium-browser
 		clear
 		echo -e "\n\n Done!\n"
 	
@@ -404,8 +381,8 @@ install_simplecpp(){
 echo -e "\nOK. Please download simplecpp from moodle (Login to moodle and go here: http://moodle.iitb.ac.in/mod/resource/view.php?id=998), and ensure it is in your Downloads folder. Press enter when you are done.";
 read
 echo -e "\nPlease wait while I install libx11-dev and g++.\n\n"
-sudo apt-get install libx11-dev -y
-sudo apt-get install g++ -y
+install_aptget libx11-dev
+install_aptget g++
 clear
 echo -e "\n\n Installing simplecpp...\n\n"
 cp	./Downloads/simplecpp.tar	~/simplecpp.tar
@@ -420,7 +397,9 @@ echo -e "\n\nDone!! \n Enjoy simplecpp! (You may have to open a new terminal to 
 
 }
 
-
+install_aptget(){
+		sudo env http_proxy="http://$username:$passe@netmon.iitb.ac.in:80" apt-get install $1 -y
+}
 	if [[ $1 == "bypass" ]]; then
 			wholeshebang
 	fi
