@@ -31,18 +31,19 @@ echo -e "\n\nPlease choose from the following options:\n\n\
 1) Set up all proxy settings (Use this unless you want to do something specific)\n\
 2) Turn Ubuntu Software center/APT proxy settings ON\n\
 3) Turn Ubuntu Software center/APT proxy settings OFF\n\
-4) Install Synaptic\n\
-5) Turn Synaptic Proxy On (Requires Synaptic)\n\
-6) Turn Synaptic proxy off (Requires Synaptic)\n\
-7) Install Chrome\n\
-8) Install Chromium\n\
-9) Set up all browser proxies (global setting) ON\n\
-10) Turn global browser proxy setting OFF\n\
-11) Turn only Firefox proxy setting ON\n\
-12) Turn only Firefox proxy setting OFF\n\
-13) Install simplecpp\n\
-14) Install geany\n\
-14) Quit\n\nType your option and hit enter:"	
+4) Add Universe Repo\n\
+5) Install Synaptic\n\
+6) Turn Synaptic Proxy On (Requires Synaptic)\n\
+7) Turn Synaptic proxy off (Requires Synaptic)\n\
+8) Install Chrome\n\
+9) Install Chromium\n\
+10) Set up all browser proxies (global setting) ON\n\
+11) Turn global browser proxy setting OFF\n\
+12) Turn only Firefox proxy setting ON\n\
+13) Turn only Firefox proxy setting OFF\n\
+14) Install simplecpp\n\
+15) Install geany\n\
+16) Quit\n\nType your option and hit enter:"	
 main_menu_read
 
 }
@@ -55,18 +56,19 @@ case "$menuA" in
 1) wholeshebang;;
 2) proxy_apt_on;;
 3) proxy_apt_off;;
-4) install_synaptic;;
-5) proxy_synaptic_on;;
-6) proxy_synaptic_off;;
-7) install_chrome;;
-8) install_chromium;;
-9) proxy_allbrowsers_on;;
-10)proxy_allbrowsers_off;;
-11)proxy_firefox_on;;
-12) proxy_firefox_off;;
-13) install_simplecpp;;
-14) install_geany;;
-15) exit;;
+4) add_universe;;
+5) install_synaptic;;
+6) proxy_synaptic_on;;
+7) proxy_synaptic_off;;
+8) install_chrome;;
+9) install_chromium;;
+10) proxy_allbrowsers_on;;
+11)proxy_allbrowsers_off;;
+12)proxy_firefox_on;;
+13) proxy_firefox_off;;
+14) install_simplecpp;;
+15) install_geany;;
+16) exit;;
 *) echo -e "Invalid option\nTry again:";main_menu_read;;
 
 esac
@@ -120,7 +122,7 @@ sudo cp temp.txt /etc/apt/apt.conf.d/02proxy
 rm temp.txt
 export http_proxy="http://"username":"passe"@netmon.iitb.ac.in:80" 
 clear
-echo -e "\nAlright, I have finished setting up the proxy for Ubuntu Software Center. You can now install stuff if you wish, after a restart\n\n"
+echo -e "\nAlright, I have finished setting up the proxy for Ubuntu Software Center. You can now install stuff if you wish\n\n"
 
 }
 proxy_apt_off(){
@@ -134,7 +136,15 @@ sudo cp temp.txt /etc/apt/apt.conf.d/02proxy
 rm temp.txt
 }
 
+add_universe(){
+echo "Adding Universe..."
 
+sudo apt-add-repository 'deb http://archive.ubuntu.com/ubuntu precise universe'
+echo -e "Updating Sources...\n\n\n"
+sudo apt-get update
+clear    
+echo -e "Done!\n\n"
+}    
 proxy_synaptic_on(){
 			echo -e "\n\nI will have to open Synaptic first. Hit OK if it prompts you for anything, then close it."
 			read -p "Press enter if you have read the above"
