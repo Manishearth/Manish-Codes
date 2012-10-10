@@ -24,7 +24,7 @@ stty echo
 
 
 passe=${pass//\@/\%40}
-
+passe=${passe//\//\%2F}
 
 main_menu_disp(){
 echo -e "\n\nPlease choose from the following options:\n\n\
@@ -140,6 +140,8 @@ add_universe(){
 echo "Adding Universe..."
 
 sudo apt-add-repository 'deb http://archive.ubuntu.com/ubuntu precise universe'
+sudo apt-add-repository 'deb http://lk.archive.ubuntu.com/ubuntu/ precise universe'
+
 echo -e "Updating Sources...\n\n\n"
 sudo apt-get update
 clear    
@@ -272,7 +274,12 @@ proxy_firefox_off(){
         #read -p "OK, we shall only configure firefox. I shall open firefox after you press enter. Once you open it, go to Edit>Preferences>Advanced>Network. Click the 'Settings' button under 'Connection', select 'Manual proxy settings'. Enter 'netmon.iitb.ac.in' as the HTTP proxy, with port 80. Ensure that the 'use this proxy for all protocols' is ticked. Then, enter '*.iitb.ac.in,10.*.*.*,localhost' (without quotes) in the 'no proxy for' area. Click OK, close, and close firefox. Press enter to open firefox."
 		#firefox
 			sudo cat>> ~/.mozilla/firefox/*.default/prefs.js<<EOF
-
+user_pref("network.proxy.ftp", "netmon.iitb.ac.in");
+user_pref("network.proxy.http", "netmon.iitb.ac.in");
+user_pref("network.proxy.no_proxies_on", "*.iitb.ac.in,localhost, 127.0.0.1, 10.*.*.*");
+user_pref("network.proxy.share_proxy_settings", true);
+user_pref("network.proxy.socks", "netmon.iitb.ac.in");
+user_pref("network.proxy.ssl", "netmon.iitb.ac.in");
 user_pref("networkproxy.type", 0);
 EOF
 echo -e "\n\nDone!"
@@ -408,7 +415,7 @@ echo -e "\n\nDone!! \n Enjoy simplecpp! (You may have to open a new terminal to 
 }
 
 install_aptget(){
-		sudo env http_proxy="http://$username:$passe@netmon.iitb.ac.in:80" apt-get install $1 -y
+		sudo env http_proxy="http://$username:$passe@netmon.iitb.ac.in:80" apt-get install $1 
 }
 	if [[ $1 == "bypass" ]]; then
 			wholeshebang
