@@ -320,7 +320,7 @@ proxy_allbrowsers_on(){
 	sudo cat>> ~/.mozilla/firefox/*.default/prefs.js<<EOF
 user_pref("network.proxy.ftp", "netmon.iitb.ac.in");
 user_pref("network.proxy.http", "netmon.iitb.ac.in");
-user_pref("network.proxy.no_proxies_on", "localhost, 127.0.0.1, 10.*.*.*");
+user_pref("network.proxy.no_proxies_on", "*.iitb.ac.in, localhost, 127.0.0.1, 10.*.*.*");
 user_pref("network.proxy.share_proxy_settings", true);
 user_pref("network.proxy.socks", "netmon.iitb.ac.in");
 user_pref("network.proxy.ssl", "netmon.iitb.ac.in");
@@ -402,7 +402,7 @@ install_aptget libx11-dev
 install_aptget g++
 clear
 echo -e "\n\n Installing simplecpp...\n\n"
-cp	./Downloads/simplecpp.tar	~/simplecpp.tar
+cp ./Downloads/simplecpp.tar ~/simplecpp.tar
 cd ~
 tar -xvf ~/simplecpp.tar
 cd simplecpp
