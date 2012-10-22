@@ -290,7 +290,7 @@ proxy_allbrowsers_on(){
 
 	 echo -e "\n\nPlease wait while I set up the proxy..."
 	 cd ~/.gconf
-	 gsettings set org.gnome.system.proxy ignore-hosts "['*.iitb.ac.in', 'localhost', '127.0.0.0/8', '10.*.*.*']"
+	 gsettings set org.gnome.system.proxy ignore-hosts "['*.iitb.ac.in', 'localhost', '127.0.0.0/8', '10.*.*.*','192.168.*.*']"
 
 	 gsettings set org.gnome.system.proxy mode "manual"
 
