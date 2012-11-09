@@ -402,7 +402,7 @@ install_aptget libx11-dev
 install_aptget g++
 clear
 echo -e "\n\n Installing simplecpp...\n\n"
-cp ./Downloads/simplecpp.tar ~/simplecpp.tar
+cp ~/Downloads/simplecpp.tar ~/simplecpp.tar
 cd ~
 tar -xvf ~/simplecpp.tar
 cd simplecpp
