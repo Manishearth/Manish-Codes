@@ -25,7 +25,7 @@ stty echo
 
 passe=${pass//\@/\%40}
 passe=${passe//\//\%2F}
-
+passe=${passe//\%/\%25}
 main_menu_disp(){
 echo -e "\n\nPlease choose from the following options:\n\n\
 1) Set up all proxy settings (Use this unless you want to do something specific)\n\
