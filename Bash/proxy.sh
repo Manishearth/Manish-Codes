@@ -14,41 +14,36 @@ echo -e "Welcome to the IITB Proxy setting manager for Ubuntu!\nThis script was 
 echo -e "\nPlease authenticate sudo (use your Ubuntu login password). It should display 'Thank you!' if the authentication completes. If not, restart the script:"
 sudo echo "Thank you!"
 wd=`pwd`
-if [[ $1 == "bypass" || $1 == "input" ]]; then
-	username=$2
-	pass=$3
-	a1=$1
-	passe=${pass//\@/\%40}
 
-else
 read -p "Enter LDAP username:" username
 stty -echo
 echo "Password:"
 
 read pass
 stty echo
-fi
+
 
 passe=${pass//\@/\%40}
-
+passe=${passe//\//\%2F}
 
 main_menu_disp(){
 echo -e "\n\nPlease choose from the following options:\n\n\
 1) Set up all proxy settings (Use this unless you want to do something specific)\n\
 2) Turn Ubuntu Software center/APT proxy settings ON\n\
 3) Turn Ubuntu Software center/APT proxy settings OFF\n\
-4) Install Synaptic\n\
-5) Turn Synaptic Proxy On (Requires Synaptic)\n\
-6) Turn Synaptic proxy off (Requires Synaptic)\n\
-7) Install Chrome\n\
-8) Install Chromium\n\
-9) Set up all browser proxies (global setting) ON\n\
-10) Turn global browser proxy setting OFF\n\
-11) Turn only Firefox proxy setting ON\n\
-12) Turn only Firefox proxy setting OFF\n\
-13) Install simplecpp\n\
-14) Install geany\n\
-14) Quit\n\nType your option and hit enter:"	
+4) Add Universe Repo\n\
+5) Install Synaptic\n\
+6) Turn Synaptic Proxy On (Requires Synaptic)\n\
+7) Turn Synaptic proxy off (Requires Synaptic)\n\
+8) Install Chrome\n\
+9) Install Chromium\n\
+10) Set up all browser proxies (global setting) ON\n\
+11) Turn global browser proxy setting OFF\n\
+12) Turn only Firefox proxy setting ON\n\
+13) Turn only Firefox proxy setting OFF\n\
+14) Install simplecpp\n\
+15) Install geany\n\
+16) Quit\n\nType your option and hit enter:"	
 main_menu_read
 
 }
@@ -61,18 +56,19 @@ case "$menuA" in
 1) wholeshebang;;
 2) proxy_apt_on;;
 3) proxy_apt_off;;
-4) install_synaptic;;
-5) proxy_synaptic_on;;
-6) proxy_synaptic_off;;
-7) install_chrome;;
-8) install_chromium;;
-9) proxy_allbrowsers_on;;
-10)proxy_allbrowsers_off;;
-11)proxy_firefox_on;;
-12) proxy_firefox_off;;
-13) install_simplecpp;;
-14) install_geany;;
-15) exit;;
+4) add_universe;;
+5) install_synaptic;;
+6) proxy_synaptic_on;;
+7) proxy_synaptic_off;;
+8) install_chrome;;
+9) install_chromium;;
+10) proxy_allbrowsers_on;;
+11)proxy_allbrowsers_off;;
+12)proxy_firefox_on;;
+13) proxy_firefox_off;;
+14) install_simplecpp;;
+15) install_geany;;
+16) exit;;
 *) echo -e "Invalid option\nTry again:";main_menu_read;;
 
 esac
@@ -84,28 +80,11 @@ main_menu_disp
 wholeshebang(){
 
 
-if [[ $a1 != "bypass" ]]; then
-
 
 echo -e "Setting APT Proxy"	
 proxy_apt_on
 echo -e "\n\n"
 
-	cd ~/Desktop
-	touch continueproxy.sh
-	chmod 755 continueproxy.sh
-	echo "bash "$wd"/"$0" bypass "$username" "$pass>continueproxy.sh
-	echo "rm continueproxy.sh">>continueproxy.sh
-	echo -e "We need to restart now. Once we have done so, please double-click continueproxy.sh on the desktop and select \"Run in terminal\", it will resume this process. Would you like to restart now? (y/n)"
-	read a
-	if [[ $a != "Y" && $a != "y" ]]; then
-        exit
-        cd $wd
-	else
-		shutdown -r now
-	fi
-	
-fi
 
 #No need to ask for synaptic, if people know what it is let them install using the menu options
 #echo -e "\n\n"
@@ -143,7 +122,7 @@ sudo cp temp.txt /etc/apt/apt.conf.d/02proxy
 rm temp.txt
 export http_proxy="http://"username":"passe"@netmon.iitb.ac.in:80" 
 clear
-echo -e "\nAlright, I have finished setting up the proxy for Ubuntu Software Center. You can now install stuff if you wish, after a restart\n\n"
+echo -e "\nAlright, I have finished setting up the proxy for Ubuntu Software Center. You can now install stuff if you wish\n\n"
 
 }
 proxy_apt_off(){
@@ -157,7 +136,18 @@ sudo cp temp.txt /etc/apt/apt.conf.d/02proxy
 rm temp.txt
 }
 
+add_universe(){
+echo "Adding Universe..."
+ubuntuver=$(lsb_release -c -s)
 
+sudo apt-add-repository 'deb http://archive.ubuntu.com/ubuntu '$ubuntuversion' universe'
+sudo apt-add-repository 'deb http://lk.archive.ubuntu.com/ubuntu/ '$ubuntuversion' universe'
+
+echo -e "Updating Sources...\n\n\n"
+sudo apt-get update
+clear    
+echo -e "Done!\n\n"
+}    
 proxy_synaptic_on(){
 			echo -e "\n\nI will have to open Synaptic first. Hit OK if it prompts you for anything, then close it."
 			read -p "Press enter if you have read the above"
@@ -259,7 +249,7 @@ install_synaptic(){
 
         echo -e "\n\nPlease wait while I install Synaptic.\n\n"
         
-        sudo apt-get install synaptic -y
+        install_aptget synaptic
 		clear
 		echo -e
 }
@@ -285,7 +275,12 @@ proxy_firefox_off(){
         #read -p "OK, we shall only configure firefox. I shall open firefox after you press enter. Once you open it, go to Edit>Preferences>Advanced>Network. Click the 'Settings' button under 'Connection', select 'Manual proxy settings'. Enter 'netmon.iitb.ac.in' as the HTTP proxy, with port 80. Ensure that the 'use this proxy for all protocols' is ticked. Then, enter '*.iitb.ac.in,10.*.*.*,localhost' (without quotes) in the 'no proxy for' area. Click OK, close, and close firefox. Press enter to open firefox."
 		#firefox
 			sudo cat>> ~/.mozilla/firefox/*.default/prefs.js<<EOF
-
+user_pref("network.proxy.ftp", "netmon.iitb.ac.in");
+user_pref("network.proxy.http", "netmon.iitb.ac.in");
+user_pref("network.proxy.no_proxies_on", "*.iitb.ac.in,localhost, 127.0.0.1, 10.*.*.*");
+user_pref("network.proxy.share_proxy_settings", true);
+user_pref("network.proxy.socks", "netmon.iitb.ac.in");
+user_pref("network.proxy.ssl", "netmon.iitb.ac.in");
 user_pref("networkproxy.type", 0);
 EOF
 echo -e "\n\nDone!"
@@ -296,7 +291,7 @@ proxy_allbrowsers_on(){
 
 	 echo -e "\n\nPlease wait while I set up the proxy..."
 	 cd ~/.gconf
-	 gsettings set org.gnome.system.proxy ignore-hosts "['*.iitb.ac.in', 'localhost', '127.0.0.0/8', '10.*.*.*']"
+	 gsettings set org.gnome.system.proxy ignore-hosts "['*.iitb.ac.in', 'localhost', '127.0.0.0/8', '10.*.*.*','192.168.*.*']"
 
 	 gsettings set org.gnome.system.proxy mode "manual"
 
@@ -326,12 +321,12 @@ proxy_allbrowsers_on(){
 	sudo cat>> ~/.mozilla/firefox/*.default/prefs.js<<EOF
 user_pref("network.proxy.ftp", "netmon.iitb.ac.in");
 user_pref("network.proxy.http", "netmon.iitb.ac.in");
-user_pref("network.proxy.no_proxies_on", "localhost, 127.0.0.1, 10.*.*.*");
+user_pref("network.proxy.no_proxies_on", "*.iitb.ac.in, localhost, 127.0.0.1, 10.*.*.*");
 user_pref("network.proxy.share_proxy_settings", true);
 user_pref("network.proxy.socks", "netmon.iitb.ac.in");
 user_pref("network.proxy.ssl", "netmon.iitb.ac.in");
-user_pref("networkproxy.type", 2);
 EOF
+#user_pref("networkproxy.type", 2);
 #Technically, we only need the last line of the configuration (Which tells it to use system settings), but it's always good to keep manual proxy settings dormant.
 
 	echo -e "\n Done!"
@@ -380,7 +375,7 @@ fi
 
 install_chrome(){
 		echo -e "Please wait while I install Chrome.\n\n"
-		sudo apt-get install google-chrome-stable -y
+		install_aptget google-chrome-stable
 		clear
 		echo -e "\n\n Done!\n"
 }
@@ -388,13 +383,13 @@ install_chrome(){
 
 install_geany(){
 		echo -e "Please wait while I install geany.\n\n"
-		sudo apt-get install geany -y
+		install_aptget geany
 		clear
 		echo -e "\n\n Done!\n"
 }
 install_chromium(){
 		echo -e "Please wait while I install Chromium.\n\n"
-		sudo apt-get install chromium-browser -y
+		install_aptget chromium-browser
 		clear
 		echo -e "\n\n Done!\n"
 	
@@ -404,11 +399,11 @@ install_simplecpp(){
 echo -e "\nOK. Please download simplecpp from moodle (Login to moodle and go here: http://moodle.iitb.ac.in/mod/resource/view.php?id=998), and ensure it is in your Downloads folder. Press enter when you are done.";
 read
 echo -e "\nPlease wait while I install libx11-dev and g++.\n\n"
-sudo apt-get install libx11-dev -y
-sudo apt-get install g++ -y
+install_aptget libx11-dev
+install_aptget g++
 clear
 echo -e "\n\n Installing simplecpp...\n\n"
-cp	./Downloads/simplecpp.tar	~/simplecpp.tar
+cp ~/Downloads/simplecpp.tar ~/simplecpp.tar
 cd ~
 tar -xvf ~/simplecpp.tar
 cd simplecpp
@@ -420,9 +415,12 @@ echo -e "\n\nDone!! \n Enjoy simplecpp! (You may have to open a new terminal to 
 
 }
 
-
+install_aptget(){
+		sudo env http_proxy="http://$username:$passe@netmon.iitb.ac.in:80" apt-get install $1 
+}
 	if [[ $1 == "bypass" ]]; then
 			wholeshebang
 	fi
 main_menu_disp
+
 
