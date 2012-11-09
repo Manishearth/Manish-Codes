@@ -139,8 +139,8 @@ rm temp.txt
 add_universe(){
 echo "Adding Universe..."
 
-sudo apt-add-repository 'deb http://archive.ubuntu.com/ubuntu precise universe'
-sudo apt-add-repository 'deb http://lk.archive.ubuntu.com/ubuntu/ precise universe'
+sudo apt-add-repository 'deb http://archive.ubuntu.com/ubuntu quantal universe'
+sudo apt-add-repository 'deb http://lk.archive.ubuntu.com/ubuntu/ quantal universe'
 
 echo -e "Updating Sources...\n\n\n"
 sudo apt-get update

@@ -324,8 +324,8 @@ user_pref("network.proxy.no_proxies_on", "*.iitb.ac.in, localhost, 127.0.0.1, 10
 user_pref("network.proxy.share_proxy_settings", true);
 user_pref("network.proxy.socks", "netmon.iitb.ac.in");
 user_pref("network.proxy.ssl", "netmon.iitb.ac.in");
+user_pref("networkproxy.type", 2);
 EOF
-#user_pref("networkproxy.type", 2);
 #Technically, we only need the last line of the configuration (Which tells it to use system settings), but it's always good to keep manual proxy settings dormant.
 
 	echo -e "\n Done!"
