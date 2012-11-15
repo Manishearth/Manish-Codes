@@ -19,7 +19,7 @@ with_jquery(function($){
 $('document').ready(function(){
 var re=new RegExp("zh.wikipedia.org\\/wiki\\/","g")
 $('a').each(function(){
-    this.href.replace(re,"zh.wikipedia.org/zh-cn/")
+    this.href=this.href.replace(re,"zh.wikipedia.org/zh-cn/")
     
 });
 });
