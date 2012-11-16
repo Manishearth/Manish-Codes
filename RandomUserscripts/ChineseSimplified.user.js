@@ -16,11 +16,21 @@ function with_jquery(f) {
 
 
 with_jquery(function($){
+
 $('document').ready(function(){
-var re=new RegExp("zh.wikipedia.org\\/wiki\\/","g")
+var re=new RegExp("zh.wikipedia.org\\/zh-cn\\/","g")
+if(document.location.href.match(re)){
+re=new RegExp("zh.wikipedia.org\\/wiki\\/","g")
+
+
 $('a').each(function(){
     this.href=this.href.replace(re,"zh.wikipedia.org/zh-cn/")
     
 });
+}
+
+
 });
+
+
 });
