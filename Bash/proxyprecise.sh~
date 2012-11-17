@@ -22,7 +22,7 @@ echo "Password:"
 read pass
 stty echo
 
-passe=${passe//\%/\%25}
+
 passe=${pass//\@/\%40}
 passe=${passe//\//\%2F}
 
@@ -138,10 +138,9 @@ rm temp.txt
 
 add_universe(){
 echo "Adding Universe..."
-ubuntuver=$(lsb_release -c -s)
 
-sudo apt-add-repository 'deb http://archive.ubuntu.com/ubuntu '$ubuntuversion' universe'
-sudo apt-add-repository 'deb http://lk.archive.ubuntu.com/ubuntu/ '$ubuntuversion' universe'
+sudo apt-add-repository 'deb http://archive.ubuntu.com/ubuntu precise universe'
+sudo apt-add-repository 'deb http://lk.archive.ubuntu.com/ubuntu/ precise universe'
 
 echo -e "Updating Sources...\n\n\n"
 sudo apt-get update
@@ -403,7 +402,7 @@ install_aptget libx11-dev
 install_aptget g++
 clear
 echo -e "\n\n Installing simplecpp...\n\n"
-cp ~/Downloads/simplecpp.tar ~/simplecpp.tar
+cp ./Downloads/simplecpp.tar ~/simplecpp.tar
 cd ~
 tar -xvf ~/simplecpp.tar
 cd simplecpp
@@ -422,5 +421,4 @@ install_aptget(){
 			wholeshebang
 	fi
 main_menu_disp
-
 
