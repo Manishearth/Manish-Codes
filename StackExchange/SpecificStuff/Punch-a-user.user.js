@@ -185,8 +185,8 @@ with_jquery(function($) {
         keen = make_keen(keen, $(this))
         keen.fall_in()
     };
-	$('<br>').appendTo('[class^=gravatar] div:first');
-    $('<a href="javascript:void(0)">Punch</a>').click(do_the_deed).mouseover(function(){return false;}).appendTo('[class^=user-gravatar],[class^=gravatar] div:first')
+	$('<br>').appendTo('[class^=gravatar]:has(img) div:first');
+    $('<a href="javascript:void(0)">Punch</a>').click(do_the_deed).mouseover(function(){return false;}).appendTo('[class^=user-gravatar]:has(img),[class^=gravatar]:has(img) div:first')
 
     
 
