@@ -140,8 +140,8 @@ add_universe(){
 echo "Adding Universe..."
 ubuntuver=$(lsb_release -c -s)
 
-sudo apt-add-repository 'deb http://archive.ubuntu.com/ubuntu '$ubuntuversion' universe'
-sudo apt-add-repository 'deb http://lk.archive.ubuntu.com/ubuntu/ '$ubuntuversion' universe'
+sudo apt-add-repository 'deb http://archive.ubuntu.com/ubuntu '$ubuntuver' universe'
+sudo apt-add-repository 'deb http://lk.archive.ubuntu.com/ubuntu/ '$ubuntuver' universe'
 
 echo -e "Updating Sources...\n\n\n"
 sudo apt-get update
