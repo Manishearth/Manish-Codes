@@ -21,6 +21,10 @@ function with_jquery(f) {
 
 with_jquery(function($){
 $('document').ready(function(){
+    var htm=$('.post-menu').html()||"";
+    if(htm!=-1&&$('[id^=close-question] span').length!=0){
+        return;
+    }
 $('.post-menu').append($('<span class="lsep">|</span><a class="printme" href="#" title="Print this post">print</a>'));
 $('.printme').bind("click",function(){
 	if(!confirm("Are you sure that you want to waste some paper?\n Any content you've not submitted on this page will be lost.")){
