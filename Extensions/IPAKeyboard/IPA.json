@@ -1,0 +1,949 @@
+[ { "chars" : [ { "htm" : "ɑ",
+          "name" : "a script",
+          "title" : "open back unrounded vowel ",
+          "unic" : 593
+        },
+        { "htm" : "æ",
+          "name" : "ae",
+          "title" : "near-open front unrounded vowel ",
+          "unic" : 230
+        },
+        { "htm" : "ɐ",
+          "name" : "a upside",
+          "title" : "near-open central vowel ",
+          "unic" : 592
+        },
+        { "htm" : "ɑ̃",
+          "name" : "a script nasalized",
+          "title" : "nasalized open back unrounded vowel ",
+          "unic" : 593
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "A"
+  },
+  { "chars" : [ { "htm" : "β",
+          "name" : "beta",
+          "title" : "voiced bilabial fricative ",
+          "unic" : 946
+        },
+        { "htm" : "ɓ",
+          "name" : "b hook",
+          "title" : "voiced bilabial implosive ",
+          "unic" : 595
+        },
+        { "htm" : "ʙ",
+          "name" : "B small",
+          "title" : "bilabial trill ",
+          "unic" : 665
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "B"
+  },
+  { "chars" : [ { "htm" : "ɕ",
+          "name" : "c loop",
+          "title" : "voiceless alveo-palatal fricative ",
+          "unic" : 597
+        },
+        { "htm" : "ç",
+          "name" : "c cedil",
+          "title" : "voiceless palatal fricative ",
+          "unic" : 231
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "C"
+  },
+  { "chars" : [ { "htm" : "ð",
+          "name" : "eth",
+          "title" : "voiced dental fricative ",
+          "unic" : 240
+        },
+        { "htm" : "d͡ʒ",
+          "name" : "dzh",
+          "title" : "voiced postalveolar affricate ",
+          "unic" : 100
+        },
+        { "htm" : "ɖ",
+          "name" : "d hook low",
+          "title" : "voiced retroflex plosive ",
+          "unic" : 598
+        },
+        { "htm" : "ɗ",
+          "name" : "d hook high",
+          "title" : "voiced alveolar implosive ",
+          "unic" : 599
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "D"
+  },
+  { "chars" : [ { "htm" : "ə",
+          "name" : "schwa",
+          "title" : "mid-central vowel ",
+          "unic" : 601
+        },
+        { "htm" : "ɚ",
+          "name" : "schwa rhotic",
+          "title" : "rhotacized mid-central vowel ",
+          "unic" : 602
+        },
+        { "htm" : "ɵ",
+          "name" : "schwa closed",
+          "title" : "close-mid central rounded vowel ",
+          "unic" : 629
+        },
+        { "htm" : "ɘ",
+          "name" : "schwa upside",
+          "title" : "close-mid central unrounded vowel ",
+          "unic" : 600
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "E"
+  },
+  { "chars" : [ { "htm" : "ɛ",
+          "name" : "epsilon",
+          "title" : "open-mid front unrounded vowel ",
+          "unic" : 603
+        },
+        { "htm" : "ɜ",
+          "name" : "epsilon flipped",
+          "title" : "open-mid central unrounded vowel ",
+          "unic" : 604
+        },
+        { "htm" : "ɝ",
+          "name" : "epsilon flipped rhotic",
+          "title" : "rhotacized open-mid central unrounded vowel ",
+          "unic" : 605
+        },
+        { "htm" : "ɛ̃",
+          "name" : "epsilon nasalized",
+          "title" : "nasalized open-mid front unrounded vowel ",
+          "unic" : 603
+        },
+        { "htm" : "ɞ",
+          "name" : "epsilon flipped closed",
+          "title" : "open-mid central rounded vowel ",
+          "unic" : 606
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "3"
+  },
+  { "chars" : [ { "htm" : "ɠ",
+          "name" : "g hook",
+          "title" : "voiced velar implosive ",
+          "unic" : 608
+        },
+        { "htm" : "ɢ",
+          "name" : "G small",
+          "title" : "voiced uvular plosive ",
+          "unic" : 610
+        },
+        { "htm" : "ʛ",
+          "name" : "G small hook",
+          "title" : "voiced uvular implosive ",
+          "unic" : 667
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "G"
+  },
+  { "chars" : [ { "htm" : "ɥ",
+          "name" : "h upside",
+          "title" : "labial-palatal approximant ",
+          "unic" : 613
+        },
+        { "htm" : "ɦ",
+          "name" : "h hook",
+          "title" : "voiced glottal fricative ",
+          "unic" : 614
+        },
+        { "htm" : "ħ",
+          "name" : "h barred",
+          "title" : "voiceless pharyngeal fricative ",
+          "unic" : 295
+        },
+        { "htm" : "ɧ",
+          "name" : "h low hook",
+          "title" : "Sje-sound ",
+          "unic" : 615
+        },
+        { "htm" : "ʜ",
+          "name" : "H small",
+          "title" : "voiceless epiglottal fricative ",
+          "unic" : 668
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "H"
+  },
+  { "chars" : [ { "htm" : "ɪ",
+          "name" : "I small",
+          "title" : "near-close near-front unrounded vowel ",
+          "unic" : 618
+        },
+        { "htm" : "ɪ̈",
+          "name" : "schwi",
+          "title" : "near-close central unrounded vowel ",
+          "unic" : 618
+        },
+        { "htm" : "ɨ",
+          "name" : "i barred",
+          "title" : "close central unrounded vowel ",
+          "unic" : 616
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "I"
+  },
+  { "chars" : [ { "htm" : "ʝ",
+          "name" : "j loop",
+          "title" : "voiced palatal fricative ",
+          "unic" : 669
+        },
+        { "htm" : "ɟ",
+          "name" : "j barred",
+          "title" : "voiced palatal plosive ",
+          "unic" : 607
+        },
+        { "htm" : "ʄ",
+          "name" : "j mirrored",
+          "title" : "voiced palatal implosive ",
+          "unic" : 644
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "J"
+  },
+  { "chars" : [ { "htm" : "ɫ",
+          "name" : "l wave",
+          "title" : "velarized alveolar lateral approximant ",
+          "unic" : 619
+        },
+        { "htm" : "ɬ",
+          "name" : "l loop",
+          "title" : "voiceless alveolar lateral fricative ",
+          "unic" : 620
+        },
+        { "htm" : "ʟ",
+          "name" : "L small",
+          "title" : "velar lateral approximant ",
+          "unic" : 671
+        },
+        { "htm" : "ɭ",
+          "name" : "l long",
+          "title" : "retroflex lateral approximant ",
+          "unic" : 621
+        },
+        { "htm" : "ɮ",
+          "name" : "lzh",
+          "title" : "voiced alveolar lateral fricative ",
+          "unic" : 622
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "L"
+  },
+  { "chars" : [ { "htm" : "ɱ",
+          "name" : "m hook",
+          "title" : "labiodental nasal ",
+          "unic" : 625
+        } ],
+    "class" : "keyblock",
+    "name" : "M"
+  },
+  { "chars" : [ { "htm" : "ŋ",
+          "name" : "ng",
+          "title" : "velar nasal ",
+          "unic" : 331
+        },
+        { "htm" : "ɲ",
+          "name" : "n hook left",
+          "title" : "palatal nasal ",
+          "unic" : 626
+        },
+        { "htm" : "ɴ",
+          "name" : "N small",
+          "title" : "uvular nasal ",
+          "unic" : 628
+        },
+        { "htm" : "ɳ",
+          "name" : "n hook right",
+          "title" : "retroflex nasal ",
+          "unic" : 627
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "N"
+  },
+  { "chars" : [ { "htm" : "ɔ",
+          "name" : "o open",
+          "title" : "open-mid back rounded vowel ",
+          "unic" : 596
+        },
+        { "htm" : "œ",
+          "name" : "oe",
+          "title" : "open-mid front rounded vowel ",
+          "unic" : 339
+        },
+        { "htm" : "ø",
+          "name" : "o stroke",
+          "title" : "close-mid front rounded vowel ",
+          "unic" : 248
+        },
+        { "htm" : "ɒ",
+          "name" : "a script upside",
+          "title" : "open back rounded vowel ",
+          "unic" : 594
+        },
+        { "htm" : "ɔ̃",
+          "name" : "o open nasalized",
+          "title" : "nasalized open-mid back rounded vowel ",
+          "unic" : 596
+        },
+        { "htm" : "ɶ",
+          "name" : "OE small",
+          "title" : "open front rounded vowel ",
+          "unic" : 630
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "O"
+  },
+  { "chars" : [ { "htm" : "ɸ",
+          "name" : "phi",
+          "title" : "voiceless bilabial fricative ",
+          "unic" : 632
+        } ],
+    "class" : "keyblock",
+    "name" : "P"
+  },
+  { "chars" : [ { "htm" : "ɾ",
+          "name" : "r tap",
+          "title" : "alveolar tap ",
+          "unic" : 638
+        },
+        { "htm" : "ʁ",
+          "name" : "R small upside",
+          "title" : "voiced uvular fricative ",
+          "unic" : 641
+        },
+        { "htm" : "ɹ",
+          "name" : "r upside",
+          "title" : "alveolar approximant ",
+          "unic" : 633
+        },
+        { "htm" : "ɻ",
+          "name" : "r upside hook",
+          "title" : "retroflex approximant ",
+          "unic" : 635
+        },
+        { "htm" : "ʀ",
+          "name" : "R small",
+          "title" : "uvular trill ",
+          "unic" : 640
+        },
+        { "htm" : "ɽ",
+          "name" : "r hook",
+          "title" : "retroflex flap ",
+          "unic" : 637
+        },
+        { "htm" : "ɺ",
+          "name" : "r upside long",
+          "title" : "alveolar lateral flap ",
+          "unic" : 634
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "R"
+  },
+  { "chars" : [ { "htm" : "ʃ",
+          "name" : "sh",
+          "title" : "voiceless postalveolar fricative ",
+          "unic" : 643
+        },
+        { "htm" : "ʂ",
+          "name" : "s hook",
+          "title" : "voiceless retroflex fricative ",
+          "unic" : 642
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "S"
+  },
+  { "chars" : [ { "htm" : "θ",
+          "name" : "theta",
+          "title" : "voiceless dental fricative ",
+          "unic" : 952
+        },
+        { "htm" : "t͡ʃ",
+          "name" : "tsh",
+          "title" : "voiceless postalveolar affricate ",
+          "unic" : 116
+        },
+        { "htm" : "t͡s",
+          "name" : "ts",
+          "title" : "voiceless alveolar affricate ",
+          "unic" : 116
+        },
+        { "htm" : "ʈ",
+          "name" : "t long",
+          "title" : "voiceless retroflex plosive ",
+          "unic" : 648
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "T"
+  },
+  { "chars" : [ { "htm" : "ʊ",
+          "name" : "u horseshoe",
+          "title" : "near-close near-back rounded vowel ",
+          "unic" : 650
+        },
+        { "htm" : "ʊ̈",
+          "name" : "schwu",
+          "title" : "near-close central rounded vowel ",
+          "unic" : 650
+        },
+        { "htm" : "ʉ",
+          "name" : "u barred",
+          "title" : "close central rounded vowel ",
+          "unic" : 649
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "U"
+  },
+  { "chars" : [ { "htm" : "ʌ",
+          "name" : "v upside",
+          "title" : "open-mid back unrounded vowel ",
+          "unic" : 652
+        },
+        { "htm" : "ʋ",
+          "name" : "v smooth",
+          "title" : "labiodental approximant ",
+          "unic" : 651
+        },
+        { "htm" : "ⱱ",
+          "name" : "v hook",
+          "title" : "labiodental flap ",
+          "unic" : 11377
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "V"
+  },
+  { "chars" : [ { "htm" : "ʍ",
+          "name" : "w upside",
+          "title" : "voiceless labio-velar approximant ",
+          "unic" : 653
+        },
+        { "htm" : "ɯ",
+          "name" : "u extra bowl",
+          "title" : "close back unrounded vowel ",
+          "unic" : 623
+        },
+        { "htm" : "ɰ",
+          "name" : "u extra bowl hook",
+          "title" : "velar approximant ",
+          "unic" : 624
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "W"
+  },
+  { "chars" : [ { "htm" : "χ",
+          "name" : "chi",
+          "title" : "voiceless uvular fricative ",
+          "unic" : 967
+        } ],
+    "class" : "keyblock",
+    "name" : "X"
+  },
+  { "chars" : [ { "htm" : "ʎ",
+          "name" : "y upside",
+          "title" : "palatal lateral approximant ",
+          "unic" : 654
+        },
+        { "htm" : "ɣ",
+          "name" : "gamma",
+          "title" : "voiced velar fricative ",
+          "unic" : 611
+        },
+        { "htm" : "ʏ",
+          "name" : "Y small",
+          "title" : "near-close near-front rounded vowel ",
+          "unic" : 655
+        },
+        { "htm" : "ɤ",
+          "name" : "rams horns",
+          "title" : "close-mid back unrounded vowel ",
+          "unic" : 612
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "Y"
+  },
+  { "chars" : [ { "htm" : "ʒ",
+          "name" : "zh",
+          "title" : "voiced postalveolar fricative ",
+          "unic" : 658
+        },
+        { "htm" : "ʐ",
+          "name" : "z hook",
+          "title" : "voiced retroflex fricative ",
+          "unic" : 656
+        },
+        { "htm" : "ʑ",
+          "name" : "z loop",
+          "title" : "voiced alveolo-palatal fricative ",
+          "unic" : 657
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "Z"
+  },
+  { "chars" : [ { "htm" : "ʔ",
+          "name" : "glottal stop",
+          "title" : "glottal stop ",
+          "unic" : 660
+        },
+        { "htm" : "ʕ",
+          "name" : "glottal stop flipped",
+          "title" : "voiced pharyngeal fricative ",
+          "unic" : 661
+        },
+        { "htm" : "ʢ",
+          "name" : "glottal stop flipped barred",
+          "title" : "voiced epiglottal fricative ",
+          "unic" : 674
+        },
+        { "htm" : "ʡ",
+          "name" : "glottal stop barred",
+          "title" : "epiglottal plosive ",
+          "unic" : 673
+        }
+      ],
+    "class" : "keyblock",
+    "name" : "2"
+  },
+  { "chars" : [ { "htm" : "|",
+          "name" : "minor group",
+          "title" : "minor group ",
+          "unic" : 124
+        },
+        { "htm" : "‖",
+          "name" : "major group",
+          "title" : "major group ",
+          "unic" : 8214
+        }
+      ],
+    "class" : "keyblock extra",
+    "name" : "1"
+  },
+  { "chars" : [ { "htm" : "ˈ",
+          "name" : "primary stress",
+          "title" : "primary stress ",
+          "unic" : 712
+        },
+        { "htm" : "ˌ",
+          "name" : "secondary stress",
+          "title" : "secondary stress ",
+          "unic" : 716
+        }
+      ],
+    "class" : "keyblock extra taller",
+    "name" : ","
+  },
+  { "chars" : [ { "htm" : "ː",
+          "name" : "length mark",
+          "title" : "length mark ",
+          "unic" : 720
+        },
+        { "htm" : "ˑ",
+          "name" : "half length mark",
+          "title" : "half-long ",
+          "unic" : 721
+        },
+        { "htm" : " ̆",
+          "name" : "extra short",
+          "title" : "extra short ",
+          "unic" : 38
+        }
+      ],
+    "class" : "keyblock extra taller",
+    "name" : "."
+  },
+  { "chars" : [ { "htm" : " ͡ ",
+          "name" : "tie bar upper",
+          "title" : "tie bar ",
+          "unic" : 8201
+        },
+        { "htm" : " ͜ ",
+          "name" : "tie bar lower",
+          "title" : "tie bar ",
+          "unic" : 8201
+        },
+        { "htm" : "‿",
+          "name" : "linking",
+          "title" : "linking ",
+          "unic" : 8255
+        }
+      ],
+    "class" : "keyblock extra taller",
+    "name" : "␣"
+  },
+  { "chars" : [ { "htm" : "∅",
+          "name" : "zero",
+          "title" : "zero ",
+          "unic" : 8709
+        },
+        { "htm" : "→",
+          "name" : "becomes",
+          "title" : "becomes ",
+          "unic" : 8594
+        },
+        { "htm" : " ̈",
+          "name" : "centralized",
+          "title" : "centralized ",
+          "unic" : 8201
+        },
+        { "htm" : " ̃",
+          "name" : "nasalized",
+          "title" : "nasalized ",
+          "unic" : 8201
+        },
+        { "htm" : " ̥",
+          "name" : "voiceless",
+          "title" : "voiceless ",
+          "unic" : 8201
+        },
+        { "htm" : " ̊",
+          "name" : "voiceless high",
+          "title" : "voiceless ",
+          "unic" : 8201
+        },
+        { "htm" : " ̬",
+          "name" : "voiced",
+          "title" : "voiced ",
+          "unic" : 8201
+        },
+        { "htm" : " ̩",
+          "name" : "syllabic",
+          "title" : "syllabic ",
+          "unic" : 8201
+        },
+        { "htm" : "ᵊ",
+          "name" : "schwa superscript",
+          "title" : "syllabic or schwa ",
+          "unic" : 7498
+        },
+        { "htm" : "ʳ",
+          "name" : "r superscript",
+          "title" : "optional r ",
+          "unic" : 691
+        },
+        { "htm" : " ˞",
+          "name" : "rhotacized",
+          "title" : "rhotacized ",
+          "unic" : 8201
+        },
+        { "htm" : "ʰ",
+          "name" : "aspirated",
+          "title" : "aspirated ",
+          "unic" : 688
+        },
+        { "htm" : "ʷ",
+          "name" : "labialized",
+          "title" : "labialized ",
+          "unic" : 695
+        },
+        { "htm" : "ʲ",
+          "name" : "palatalized",
+          "title" : "palatalized ",
+          "unic" : 690
+        },
+        { "htm" : " ̝",
+          "name" : "raised",
+          "title" : "raised ",
+          "unic" : 8201
+        },
+        { "htm" : " ̞",
+          "name" : "lowered",
+          "title" : "lowered ",
+          "unic" : 8201
+        },
+        { "htm" : " ̟",
+          "name" : "advanced",
+          "title" : "advanced ",
+          "unic" : 8201
+        },
+        { "htm" : " ̠",
+          "name" : "retracted",
+          "title" : "retracted ",
+          "unic" : 8201
+        }
+      ],
+    "class" : "keyblock extra taller combining"
+  },
+  { "chars" : [ { "htm" : " ̋",
+          "name" : "extra high",
+          "title" : "extra high",
+          "unic" : 8201
+        },
+        { "htm" : " ́",
+          "name" : "high",
+          "title" : "high",
+          "unic" : 8201
+        },
+        { "htm" : " ̄",
+          "name" : "mid",
+          "title" : "mid",
+          "unic" : 8201
+        },
+        { "htm" : " ̀",
+          "name" : "low",
+          "title" : "low",
+          "unic" : 8201
+        },
+        { "htm" : " ̏",
+          "name" : "extra low",
+          "title" : "extra low",
+          "unic" : 8201
+        },
+        { "htm" : " ̌",
+          "name" : "rising",
+          "title" : "rising",
+          "unic" : 8201
+        },
+        { "htm" : " ̂",
+          "name" : "falling",
+          "title" : "falling",
+          "unic" : 8201
+        },
+        { "htm" : " ᷄",
+          "name" : "high rising",
+          "title" : "high rising",
+          "unic" : 8201
+        },
+        { "htm" : " ᷅",
+          "name" : "low rising",
+          "title" : "low rising",
+          "unic" : 8201
+        },
+        { "htm" : " ᷈",
+          "name" : "rising-falling",
+          "title" : "rising-falling",
+          "unic" : 8201
+        }
+      ],
+    "class" : "keyblock extra taller combining wider"
+  },
+  { "chars" : [ { "htm" : "ʼ",
+          "name" : "ejective",
+          "title" : "ejective ",
+          "unic" : 700
+        },
+        { "htm" : " ̪",
+          "name" : "dental",
+          "title" : "dental ",
+          "unic" : 8201
+        },
+        { "htm" : " ̺",
+          "name" : "apical",
+          "title" : "apical ",
+          "unic" : 8201
+        },
+        { "htm" : " ̹",
+          "name" : "more rounded",
+          "title" : "more rounded ",
+          "unic" : 8201
+        },
+        { "htm" : " ̜",
+          "name" : "less rounded",
+          "title" : "less rounded ",
+          "unic" : 8201
+        },
+        { "htm" : " ̽",
+          "name" : "mid-centralized",
+          "title" : "mid-centralized ",
+          "unic" : 8201
+        },
+        { "htm" : " ̯",
+          "name" : "non-syllabic",
+          "title" : "non-syllabic ",
+          "unic" : 8201
+        },
+        { "htm" : " ̤",
+          "name" : "breathy voiced",
+          "title" : "breathy voiced",
+          "unic" : 8201
+        },
+        { "htm" : " ̰",
+          "name" : "creaky voiced",
+          "title" : "creaky voiced",
+          "unic" : 8201
+        },
+        { "htm" : " ̼",
+          "name" : "linguolabial",
+          "title" : "linguolabial",
+          "unic" : 8201
+        },
+        { "htm" : "ˠ",
+          "name" : "velarized",
+          "title" : "velarized ",
+          "unic" : 736
+        },
+        { "htm" : "ˤ",
+          "name" : "pharyngealized",
+          "title" : "pharyngealized ",
+          "unic" : 740
+        },
+        { "htm" : " ̴",
+          "name" : "velarized or pharyngealized",
+          "title" : "velarized or pharyngealized ",
+          "unic" : 8201
+        },
+        { "htm" : "ⁿ",
+          "name" : "nasal release",
+          "title" : "nasal release ",
+          "unic" : 8319
+        },
+        { "htm" : "ˡ",
+          "name" : "lateral release",
+          "title" : "lateral release ",
+          "unic" : 737
+        },
+        { "htm" : "ʱ",
+          "name" : "breathy-voice aspirated",
+          "title" : "breathy-voice aspirated ",
+          "unic" : 689
+        },
+        { "htm" : " ̘",
+          "name" : "advanced tongue root",
+          "title" : "advanced tongue root ",
+          "unic" : 8201
+        },
+        { "htm" : " ̙",
+          "name" : "retracted tongue root",
+          "title" : "retracted tongue root ",
+          "unic" : 8201
+        },
+        { "htm" : " ̻",
+          "name" : "laminal",
+          "title" : "laminal",
+          "unic" : 8201
+        },
+        { "htm" : "̚",
+          "name" : "not audibly released",
+          "title" : "not audibly released",
+          "unic" : 794
+        }
+      ],
+    "class" : "keyblock extra taller combining"
+  },
+  { "chars" : [ { "htm" : "˥",
+          "name" : "extra high alt",
+          "title" : "extra high",
+          "unic" : 741
+        },
+        { "htm" : "˦",
+          "name" : "high alt",
+          "title" : "high",
+          "unic" : 742
+        },
+        { "htm" : "˧",
+          "name" : "mid alt",
+          "title" : "mid",
+          "unic" : 743
+        },
+        { "htm" : "˨",
+          "name" : "low alt",
+          "title" : "low",
+          "unic" : 744
+        },
+        { "htm" : "˩",
+          "name" : "extra low alt",
+          "title" : "extra low",
+          "unic" : 745
+        },
+        { "htm" : "˩˥",
+          "name" : "rising alt",
+          "title" : "rising",
+          "unic" : 745
+        },
+        { "htm" : "˥˩",
+          "name" : "falling alt",
+          "title" : "falling",
+          "unic" : 741
+        },
+        { "htm" : "˦˥",
+          "name" : "high rising alt",
+          "title" : "high rising",
+          "unic" : 742
+        },
+        { "htm" : "˩˨",
+          "name" : "low rising alt",
+          "title" : "low rising",
+          "unic" : 745
+        },
+        { "htm" : "˧˦˧",
+          "name" : "rising-falling alt",
+          "title" : "rising-falling",
+          "unic" : 743
+        },
+        { "htm" : "↓",
+          "name" : "downstep",
+          "title" : "downstep",
+          "unic" : 8595
+        },
+        { "htm" : "↑",
+          "name" : "upstep",
+          "title" : "upstep",
+          "unic" : 8593
+        },
+        { "htm" : "↗",
+          "name" : "global rise",
+          "title" : "global rise",
+          "unic" : 8599
+        },
+        { "htm" : "↘",
+          "name" : "global fall",
+          "title" : "global fall",
+          "unic" : 8600
+        }
+      ],
+    "class" : "keyblock extra taller wider"
+  },
+  { "chars" : [ { "htm" : "ʘ",
+          "name" : "bilabial click",
+          "title" : "bilabial click",
+          "unic" : 664
+        },
+        { "htm" : "ǀ",
+          "name" : "dental click",
+          "title" : "dental click",
+          "unic" : 448
+        },
+        { "htm" : "ǃ",
+          "name" : "retroflex click",
+          "title" : "retroflex click",
+          "unic" : 451
+        },
+        { "htm" : "ǂ",
+          "name" : "palatoalveolar click",
+          "title" : "palatoalveolar click",
+          "unic" : 450
+        },
+        { "htm" : "ǁ",
+          "name" : "alveolar lateral click",
+          "title" : "alveolar lateral click",
+          "unic" : 449
+        }
+      ],
+    "class" : "keyblock taller"
+  }
+]
