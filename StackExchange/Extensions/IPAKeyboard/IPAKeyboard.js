@@ -14,7 +14,32 @@ function with_jquery(f) {
     script.textContent = "(" + f.toString() + ")(jQuery)";
     document.body.appendChild(script);
 };
-
+$("<style>.IPAHolder kbd{font-size:13px; cursor:default}\
+.IPAKey{width: 22px;\
+height: 26px;\
+color: #333;\
+margin-bottom: 2px;\
+margin-top: 2px;\
+margin-right: 2px;\
+padding-left:1px;\
+padding-right:1px;\
+font-size: 13px;}\
+.IPAKey:hover{background-color:#DDDDDD}\
+.IPAHolder{text-wrap:none;white-space: nowrap;}\
+.IPALabel{display: inline-block;\
+vertical-align: middle;\
+-moz-border-radius: 9px;\
+border-radius: 9px;\
+-webkit-border-radius: 9px;\
+text-align: center;\
+margin-right: 3px;\
+margin-left: 3px;\
+background-color: #AAAAFF;\
+color: white;\
+width: 17px;\
+line-height: 17px;\
+}\
+</style>").appendTo('head');
 var IPAKeyboard={};
 IPAKeyboard.data=[ { "chars" : [ { "html" : "ɑ",
           "inserter" : "ɑ",
