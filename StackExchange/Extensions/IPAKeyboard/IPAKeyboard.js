@@ -1151,12 +1151,15 @@ IPAKeyboard.clickButtonEventLambda=function(left, right,tid){
                  IPAKeyboard.clickButtonEventLambda("",datablock.chars[0].inserter,this.id)();
          
               }else{
-                  //debugger;
+                  
                   if( $(this).data('keychar')!=ltr){  
+                        for(var i=0;i<datablock.chars[($(this).data('keytimes')-1)%datablock.chars.length].inserter.length;i++){
+                  IPAKeyboard.backspaceAtCursor(this.id);
+                    }
                        $(this).data('altdown',true);
-        $(this).data('keychar',ltr)
-                 $(this).data('keytimes',1);
-                 IPAKeyboard.clickButtonEventLambda("",datablock.chars[0].inserter,this.id)();            
+                        $(this).data('keychar',ltr)
+                        $(this).data('keytimes',1);
+                            IPAKeyboard.clickButtonEventLambda("",datablock.chars[0].inserter,this.id)();            
                     }
                     for(var i=0;i<datablock.chars[($(this).data('keytimes')-1)%datablock.chars.length].inserter.length;i++){
                   IPAKeyboard.backspaceAtCursor(this.id);
