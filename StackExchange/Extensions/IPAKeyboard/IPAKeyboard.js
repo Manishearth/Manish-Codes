@@ -1130,7 +1130,7 @@ IPAKeyboard.clickButtonEventLambda=function(left, right,tid){
   }
   $("textarea.wmd-input").live('keydown',function(e){
       if($('#IPA-'+this.id).length==0){return true;}
-    console.log([$(this).data('keytimes'),e,e.keyCode])
+
       if(e.keyCode==18){
         $(this).data('altdown',true);
         $(this).data('keytimes',0);
@@ -1143,7 +1143,7 @@ IPAKeyboard.clickButtonEventLambda=function(left, right,tid){
           if(IPAKeyboard.indices[ltr]||IPAKeyboard.indices[ltr]===0){
               
               var datablock=IPAKeyboard.data[IPAKeyboard.indices[ltr]];
-              console.log([ltr,$(this).data('keytimes')])
+
               if($(this).data('keytimes')==0){
                   $(this).data('keychar',ltr)
                  $(this).data('keytimes',1);
@@ -1152,7 +1152,15 @@ IPAKeyboard.clickButtonEventLambda=function(left, right,tid){
          
               }else{
                   //debugger;
-                  if( $(this).data('keychar')!=ltr){   $(this).data('altdown',false);
+                  if( $(this).data('keychar')!=ltr){  
+                      
+                $(this).data('keychar',ltr)
+                 $(this).data('keytimes',1);
+
+                 IPAKeyboard.clickButtonEventLambda("",datablock.chars[0].inserter,this.id)();
+          
+                      
+                      );
                     $(this).data('keytimes',0);return true;}
                     for(var i=0;i<datablock.chars[($(this).data('keytimes')-1)%datablock.chars.length].inserter.length;i++){
                   IPAKeyboard.backspaceAtCursor(this.id);
