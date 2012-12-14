@@ -7,7 +7,7 @@
     {
       "matches": ["http://linguistics.stackexchange.com/*"],
       "css": ["IPAKeyboard.css"],
-      "js": ["jquery-1.8.3.min.js","IPAKeyboard.user.js"],
+      "js": ["jquery-1.8.3.min.js","IPAKeyboard.js"],
       "run_at" : "document_end"
     }
   ],
