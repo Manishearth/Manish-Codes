@@ -31,12 +31,69 @@ function with_jquery(f) {
 };
 
 with_jquery(function ($) {
-    $('.vote-count-post strong').css({'font-weight':'bold'});
-    $('.status strong').css({'font-weight':'bold', 'font-size':'24px'});
-    $('.vote .vote-count-post').css({'font-weight':'bold','font-size':'30px'});
-    $('.reputation-score').css({'font-weight':'bold','font-size':'120%'});
-    $('.mini-counts').css({'font-weight':'bold','font-size':'24px'});
-    $('#tabs a').css({'font-weight':'bold'});
-    $('span.relativetime').css({'font-weight':'bold'});
-    $('.item-multiplier span').css({'font-weight':'bold', 'font-size':'15px'});
+    $('head').append(
+        $(
+            '<style>' +
+            // Vote count in question list: http://stackoverflow.com/questions
+            // Answer count in question list
+            '.vote-count-post strong, .answered strong { \
+                font-weight: bold; \
+            }' +
+            // Vote count in question list and in post
+            '.vote-count-post { \
+                font-weight: bold !important; \
+                font-size: 28px; \
+            }' +
+            // Answer count in question list: http://stackoverflow.com/questions
+            '.status strong { \
+                font-size: 24px; \
+            }' +
+            // Counters in main page: http://stackoverflow.com/
+            /*
+            '.mini-counts { \
+                font-weight: bold; \
+                font-size: 24px; \
+            }' + */
+            // Fix bug answer counter in main page: http://programmers.stackexchange.com/
+            '.answered-accepted .mini-counts, .answered .mini-counts, .unanswered .mini-counts { \
+                font-size: 24px; \
+            }' +
+            // Tag count
+            '.item-multiplier span { \
+                font-weight: bold; \
+                font-size: 15px; \
+                color: rgb(68, 68, 68); \
+            }' +
+            // Tabs (main page and question list)
+            '#tabs { \
+                font-weight: bold; \
+            }' +
+            // Bold the relative time stamp
+            '.relativetime { \
+                font-weight: bold; \
+            }' +
+            // Bold the reputation score
+            '.reputation-score {\
+                font-weight: bold; \
+                font-size: 120%; \
+            }' +
+            '</style>'
+        )
+    );
+    
+    // Some site doesn't bold the counters in the main page
+    if (window.location.host.match(/stackoverflow.com/i)) {
+        $('head').append(
+            $(
+                '<style>' +
+                // Counters in main page: e.g. http://stackoverflow.com/
+                '.mini-counts { \
+                    font-weight: bold; \
+                    font-size: 24px; \
+                }' +
+                '</style>'
+            )
+        );
+    }
+    
 });
