@@ -18,6 +18,7 @@
 // @include        http://area51.stackexchange.com/proposals/*
 // @exclude        http://chat.*/*
 // @author         Manish Goregaokar
+// @author         nhahtdh
 
 // ==/UserScript==
 // See http://meta.stackoverflow.com/questions/158762/whats-up-with-the-new-css
@@ -29,8 +30,13 @@ function with_jquery(f) {
     document.body.appendChild(script);
 };
 
-with_jquery(function($) {
-$('.vote-count-post').css({'font-weight':'bold','font-size':'240%'});
-$('.reputation-score').css({'font-weight':'bold','font-size':'120%'});    
-
+with_jquery(function ($) {
+    $('.vote-count-post strong').css({'font-weight':'bold'});
+    $('.status strong').css({'font-weight':'bold', 'font-size':'24px'});
+    $('.vote .vote-count-post').css({'font-weight':'bold','font-size':'30px'});
+    $('.reputation-score').css({'font-weight':'bold','font-size':'120%'});
+    $('.mini-counts').css({'font-weight':'bold','font-size':'24px'});
+    $('#tabs a').css({'font-weight':'bold'});
+    $('span.relativetime').css({'font-weight':'bold'});
+    $('.item-multiplier span').css({'font-weight':'bold', 'font-size':'15px'});
 });
