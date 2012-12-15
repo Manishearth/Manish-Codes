@@ -18,6 +18,7 @@
 // @include        http://area51.stackexchange.com/proposals/*
 // @exclude        http://chat.*/*
 // @author         Manish Goregaokar
+// @author         nhahtdh
 
 // ==/UserScript==
 // See http://meta.stackoverflow.com/questions/158762/whats-up-with-the-new-css
@@ -29,8 +30,63 @@ function with_jquery(f) {
     document.body.appendChild(script);
 };
 
-with_jquery(function($) {
-$('.vote-count-post').css({'font-weight':'bold','font-size':'240%'});
-$('.reputation-score').css({'font-weight':'bold','font-size':'120%'});    
-
+with_jquery(function ($) {
+    $('head').append(
+        $(
+            '<style>' +
+            // Vote count in question list: http://stackoverflow.com/questions
+            // Answer count in question list
+            '.vote-count-post strong, .answered strong { \
+                font-weight: bold; \
+            }' +
+            // Vote count in question list and in post
+            '.vote-count-post { \
+                font-weight: bold !important; \
+                font-size: 240%; \
+            }' +
+            // Answer count in question list: http://stackoverflow.com/questions
+            '.status strong { \
+                font-size: 24px; \
+            }' +
+            // Tag count
+            '.item-multiplier { \
+                font-weight: bold; \
+                font-size: 15px; \
+                color: rgb(68, 68, 68); \
+            }' +
+            // Tabs (main page and question list)
+            '#tabs { \
+                font-weight: bold; \
+            }' +
+            // Bold the relative time stamp
+            '.relativetime { \
+                font-weight: bold; \
+            }' +
+            // Bold the reputation score
+            '.reputation-score {\
+                font-weight: bold; \
+                font-size: 120%; \
+            }' +
+            '</style>'
+        )
+    );
+    
+    // Some site doesn't bold the counters in the main page
+    if (window.location.host.match(/stackoverflow.com/i)) {
+        $('head').append(
+            $(
+                '<style>' +
+                // Counters in main page: e.g. http://stackoverflow.com/
+                '.mini-counts { \
+                    font-weight: bold; \
+                    font-size: 24px; \
+                }' +
+                '.answered-accepted .mini-counts, .answered .mini-counts, .unanswered .mini-counts { \
+                    font-size: 24px; \
+                }' +
+                '</style>'
+            )
+        );
+    }
+    
 });
