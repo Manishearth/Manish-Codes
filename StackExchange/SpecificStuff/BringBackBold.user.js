@@ -42,24 +42,14 @@ with_jquery(function ($) {
             // Vote count in question list and in post
             '.vote-count-post { \
                 font-weight: bold !important; \
-                font-size: 28px; \
+                font-size: 240%; \
             }' +
             // Answer count in question list: http://stackoverflow.com/questions
             '.status strong { \
                 font-size: 24px; \
             }' +
-            // Counters in main page: http://stackoverflow.com/
-            /*
-            '.mini-counts { \
-                font-weight: bold; \
-                font-size: 24px; \
-            }' + */
-            // Fix bug answer counter in main page: http://programmers.stackexchange.com/
-            '.answered-accepted .mini-counts, .answered .mini-counts, .unanswered .mini-counts { \
-                font-size: 24px; \
-            }' +
             // Tag count
-            '.item-multiplier span { \
+            '.item-multiplier { \
                 font-weight: bold; \
                 font-size: 15px; \
                 color: rgb(68, 68, 68); \
@@ -89,6 +79,9 @@ with_jquery(function ($) {
                 // Counters in main page: e.g. http://stackoverflow.com/
                 '.mini-counts { \
                     font-weight: bold; \
+                    font-size: 24px; \
+                }' +
+                '.answered-accepted .mini-counts, .answered .mini-counts, .unanswered .mini-counts { \
                     font-size: 24px; \
                 }' +
                 '</style>'
