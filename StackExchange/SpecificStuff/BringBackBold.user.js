@@ -30,7 +30,7 @@ function with_jquery(f) {
 };
 
 with_jquery(function($) {
-$('.vote-count-post').css('font-weight':'bold','font-size':'240%');
-$('.reputation-score').css('font-weight':'bold','font-size':'120%');    
+$('.vote-count-post').css({'font-weight':'bold','font-size':'240%'});
+$('.reputation-score').css({'font-weight':'bold','font-size':'120%'});    
 
 });
