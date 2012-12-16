@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           Moderator links
 // @namespace      Manishearth
-// @description    Allow you to summon Commander Keen and have him punch users
+// @description    Gives extra links for moderators
 // @include        http://stackoverflow.com/*
 // @include        http://serverfault.com/*
 // @include        http://superuser.com/*
