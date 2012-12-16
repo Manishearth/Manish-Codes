@@ -37,6 +37,7 @@
             var userid=document.location.href.match(/\/users\/(\d+)\//ig)[0].replace("/users/","").replace("/","");
             var str='<a href="/users/history/$id">hist</a><a href="/admin/show-user-ips/$id">IPs</a><a href="/admin/xref-user-ips/$id">xref</a><a href="/admin/users/$id/post-comments">cmts</a><a href="/admin/show-user-votes/$id">votes</a>';
            $(str.replace(/\$id/ig,userid)).insertAfter($('.sub-header-links.fr #my-logins'));
+           $('.sub-header-links.fr').css('clear','both');
          //   $('.sub-header-links.fr').insertAfter('.subheader');
             $('.subheader').css({'border-bottom':'none','height':'auto'});
         //$('.sub-header-links.fr').css({'border-bottom-width': '1px','border-bottom-style': 'solid','border-bottom-color': '#E5E5E5'});
@@ -46,8 +47,9 @@
             var id = $(this).data('questionid') || $(this).data('answerid');
             var links=$(this).find('.post-menu');
             if($(this).find('.post-signature').length<2){ $('<span class="lsep">|</span><a href="/posts/'+id+'/revisions" class="rev-post" title="Revisions">Я</a>').appendTo(links);}
-             $('<span class="lsep">|</span><a href="/admin/posts/'+id+'/show-flags" class="flags-post" title="Show flag history">flags</a>').appendTo(links);
-             $('<span class="lsep">|</span><a href="/admin/posts/'+id+'/comments" class="cmts-post" title="Show flag history">cmts</a>').appendTo(links);
+            $('<span class="lsep">|</span><a href="/posts/'+id+'/timeline" class="rev-post" title="Timeline">⌚</a>').appendTo(links);
+             $('<span class="lsep">|</span><a href="/admin/posts/'+id+'/show-flags" class="flags-post" title="Show flag history">⚐</a>').appendTo(links);
+             $('<span class="lsep">|</span><a href="/admin/posts/'+id+'/comments" class="cmts-post" title="Show comment history">cmts</a>').appendTo(links);
 
         
             });
