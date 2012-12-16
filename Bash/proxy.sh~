@@ -22,10 +22,10 @@ echo "Password:"
 read pass
 stty echo
 
-
+passe=${passe//\%/\%25}
 passe=${pass//\@/\%40}
 passe=${passe//\//\%2F}
-passe=${passe//\%/\%25}
+
 main_menu_disp(){
 echo -e "\n\nPlease choose from the following options:\n\n\
 1) Set up all proxy settings (Use this unless you want to do something specific)\n\
@@ -376,22 +376,41 @@ fi
 install_chrome(){
 		echo -e "Please wait while I install Chrome.\n\n"
 		install_aptget google-chrome-stable
+		OUT=$?
+		if [ $OUT -eq 0 ];then
 		clear
 		echo -e "\n\n Done!\n"
+		else
+  		 clear
+		echo -e "\n\n Some error occured. Please try again or check if you are connected to the internet\n"
+		fi
+
 }
 
 
 install_geany(){
 		echo -e "Please wait while I install geany.\n\n"
 		install_aptget geany
+		OUT=$?
+		if [ $OUT -eq 0 ];then
 		clear
 		echo -e "\n\n Done!\n"
+		else
+  		 clear
+		echo -e "\n\n Some error occured. Please try again or check if you are connected to the internet\n"
+		fi
 }
 install_chromium(){
 		echo -e "Please wait while I install Chromium.\n\n"
 		install_aptget chromium-browser
+		OUT=$?
+		if [ $OUT -eq 0 ];then
 		clear
 		echo -e "\n\n Done!\n"
+		else
+  		 clear
+		echo -e "\n\n Some error occured. Please try again or check if you are connected to the internet\n"
+		fi
 	
 }
 install_simplecpp(){
@@ -401,7 +420,11 @@ read
 echo -e "\nPlease wait while I install libx11-dev and g++.\n\n"
 install_aptget libx11-dev
 install_aptget g++
-clear
+		OUT=$?
+		if [ $OUT -eq 0 ];then
+		clear
+		echo -e "\n\n Done!\n"
+
 echo -e "\n\n Installing simplecpp...\n\n"
 cp ~/Downloads/simplecpp.tar ~/simplecpp.tar
 cd ~
@@ -412,15 +435,21 @@ echo "alias s++='~/simplecpp/s++'">~/.bash_aliases
 clear
 cd $wd
 echo -e "\n\nDone!! \n Enjoy simplecpp! (You may have to open a new terminal to get it to work for the first time)"
-
+		else
+  		 clear
+		echo -e "\n\n Some error occured. Please try again or check if you are connected to the internet\n"
+		fi
 }
 
 install_aptget(){
-		sudo env http_proxy="http://$username:$passe@netmon.iitb.ac.in:80" apt-get install $1 
+
+		sudo env http_proxy="http://$username:$passe@netmon.iitb.ac.in:80" apt-get install $1 <.y.txt
+
 }
 	if [[ $1 == "bypass" ]]; then
 			wholeshebang
 	fi
+echo "yyyyyyy">.y.txt
 main_menu_disp
 
 
