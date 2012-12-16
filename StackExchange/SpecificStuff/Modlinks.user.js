@@ -51,7 +51,7 @@
                 $(this).data('answerid')
             }
             var links=$(this).find('.post-menu');
-            if($(this).find('.post-signature').length>1){ $('<span class="lsep">|</span><a href="/posts/'+id+'/revisions" class="rev-post" title="Revisions">Я</a>').appendTo(links);}
+            if($(this).find('.post-signature').length<2){ $('<span class="lsep">|</span><a href="/posts/'+id+'/revisions" class="rev-post" title="Revisions">Я</a>').appendTo(links);}
              $('<span class="lsep">|</span><a href="/admin/posts/'+id+'/show-flags" class="flags-post" title="Show flag history">flags</a>').appendTo(links);
              $('<span class="lsep">|</span><a href="/admin/posts/'+id+'/comments" class="cmts-post" title="Show flag history">cmts</a>').appendTo(links);
 
