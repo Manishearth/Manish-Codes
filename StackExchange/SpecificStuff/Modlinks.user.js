@@ -30,7 +30,14 @@
 
     with_jquery(function($) {
         
-        if(!$('#hlinks-user:has(.mod-flair)')){
+        if($('#hlinks-user:has(.mod-flair)').length==0){
+                    $('.answer,.question').each(function(){
+            var id = $(this).data('questionid') || $(this).data('answerid');
+            var links=$(this).find('.post-menu');
+            if($(this).find('.post-signature').length<2){ $('<span class="lsep">|</span><a href="/posts/'+id+'/revisions" class="rev-post" title="Revisions">Я</a>').appendTo(links);}
+            $('<span class="lsep">|</span><a href="/posts/'+id+'/timeline" class="rev-post" title="Timeline">⌚</a>').appendTo(links);
+        
+            });
             return;
         }
         if($('h1#user-displayname').length){
