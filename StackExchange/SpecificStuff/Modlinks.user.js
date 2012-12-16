@@ -44,12 +44,7 @@
         }
         
         $('.answer,.question').each(function(){
-            var id;
-            if($(this).data('questionid')){
-                id=$(this).data('questionid');
-            }else{
-                $(this).data('answerid')
-            }
+            var id = $(this).data('questionid') || $(this).data('answerid');
             var links=$(this).find('.post-menu');
             if($(this).find('.post-signature').length<2){ $('<span class="lsep">|</span><a href="/posts/'+id+'/revisions" class="rev-post" title="Revisions">Я</a>').appendTo(links);}
              $('<span class="lsep">|</span><a href="/admin/posts/'+id+'/show-flags" class="flags-post" title="Show flag history">flags</a>').appendTo(links);
