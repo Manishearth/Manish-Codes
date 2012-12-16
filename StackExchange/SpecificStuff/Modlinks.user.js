@@ -18,7 +18,6 @@
 // @include        http://area51.stackexchange.com/proposals/*
 // @exclude        http://chat.*/*
 // @author         Manish Goregaokar
-
 // ==/UserScript==
 
 
