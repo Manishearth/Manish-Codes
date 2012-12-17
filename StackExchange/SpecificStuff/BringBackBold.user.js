@@ -42,11 +42,18 @@ with_jquery(function ($) {
             // Vote count in question list and in post
             '.vote-count-post { \
                 font-weight: bold !important; \
-                font-size: 200%; \
+                font-size: 240%; \
             }' +
             // Answer count in question list: http://stackoverflow.com/questions
             '.status strong { \
-                font-size: 200%; \
+                font-size: 150%; \
+            }' +
+            // High score post
+            '.question-page .high-scored-post, .review-task-pane .high-scored-post { \
+                font-size: 26px; \
+            } \
+            .vote-count-post.high-scored-post strong { \
+                font-size: 26px; \
             }' +
             // Tag count
             '.item-multiplier { \
