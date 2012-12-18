@@ -46,7 +46,14 @@ with_jquery(function ($) {
             }' +
             // Answer count in question list: http://stackoverflow.com/questions
             '.status strong { \
-                font-size: 24px; \
+                font-size: 150%; \
+            }' +
+            // High score post
+            '.question-page .high-scored-post, .review-task-pane .high-scored-post { \
+                font-size: 26px; \
+            } \
+            .vote-count-post.high-scored-post strong { \
+                font-size: 26px; \
             }' +
             // Tag count
             '.item-multiplier { \
@@ -71,7 +78,8 @@ with_jquery(function ($) {
         )
     );
     
-    // Some site doesn't bold the counters in the main page
+    // Many sites don't bold the counters in the main page originally
+    // If a site was bolded originally, add it here
     if (window.location.host.match(/stackoverflow.com/i)) {
         $('head').append(
             $(
@@ -79,10 +87,10 @@ with_jquery(function ($) {
                 // Counters in main page: e.g. http://stackoverflow.com/
                 '.mini-counts { \
                     font-weight: bold; \
-                    font-size: 24px; \
+                    font-size: 180%; \
                 }' +
                 '.answered-accepted .mini-counts, .answered .mini-counts, .unanswered .mini-counts { \
-                    font-size: 24px; \
+                    font-size: 180%; \
                 }' +
                 '</style>'
             )
