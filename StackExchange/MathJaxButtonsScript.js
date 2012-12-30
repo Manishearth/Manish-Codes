@@ -99,8 +99,8 @@ MathJaxButtons.buttonconfig={
 	"3 (Chem)":["O<sub>2</sub>",clickButtonEventLambda("$\\ce{","}$"),"chemify","","c",/chemistry/ig,"","Enclose selection in "+inlineMath[0]+"\ce{...}"+inlineMath[1]],
 	"5 (Phy)":["<b>E</b>",clickButtonEventLambda("\\mathbf{","}"),"vectorfield","","v",/physics/ig,"","Format selection as vector field"],
 	//Electronics.SE needs a backslash
-	"1 (DollarElectronics)":["$",clickButtonEventLambda("\\$","\\$"),"dollar","","m",/electronics/ig,"","Enclose in MathJax dollar symbols"],
-	"4 (DDollarElectronics)":["$$",Ddollarify,"Ddollar","","d",/electronics/ig,"","Enclose in MathJax double-dollar symbols"], //keyboard shortcut
+	"1 (DollarElectronics)":[inlineMath[0],clickButtonEventLambda("\\$","\\$"),"dollar","","m",/electronics/ig,"","Enclose in MathJax dollar symbols"],
+	"4 (DDollarElectronics)":[blockMath[0],clickButtonEventLambda("$$","$$"),"Ddollar","","d",/electronics/ig,"","Enclose in MathJax double-dollar symbols"], //keyboard shortcut
 	//Big O notation
 	"5 (BigO)":['NONE',clickButtonEventLambda(inlineMath[0]+"\\mathcal{O}(",")"+inlineMath[1]),"BigO","","o",/(crypto|\/cs\.stack|cstheory)/ig,/electronics.stack/ig,"Enclose selection in big O notation"],
 	"6 (SansSerif)":['NP',clickButtonEventLambda(inlineMath[0]+"\\mathsf{","}"+inlineMath[1]),"serify","","s",/(cstheory|\/cs\.stack)/ig,/electronics.stack/ig,"Enclose selection in "+inlineMath[0]+"\\mathsf{..}"+inlineMath[1]],
