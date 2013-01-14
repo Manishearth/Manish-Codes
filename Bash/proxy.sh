@@ -84,7 +84,7 @@ wholeshebang(){
 echo -e "Setting APT Proxy"	
 proxy_apt_on
 echo -e "\n\n"
-
+add_universe
 
 #No need to ask for synaptic, if people know what it is let them install using the menu options
 #echo -e "\n\n"
