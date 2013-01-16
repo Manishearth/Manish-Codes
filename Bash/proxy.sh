@@ -4,7 +4,7 @@
 # License: CC-BY-SA
 # You are free to modify and/or redistribute as long as the original author is credited and you redistribute under CC-BY-SA
 #
-# Version: 1.1 (Beta, not been tested yet)
+# Version: 1.5
 #
 
 
@@ -23,8 +23,9 @@ read pass
 stty echo
 
 passe=${passe//\%/\%25}
-passe=${pass//\@/\%40}
+passe=${passe//\@/\%40}
 passe=${passe//\//\%2F}
+passe=${passe//\:/\%3A}
 
 main_menu_disp(){
 echo -e "\n\nPlease choose from the following options:\n\n\
@@ -43,7 +44,8 @@ echo -e "\n\nPlease choose from the following options:\n\n\
 13) Turn only Firefox proxy setting OFF\n\
 14) Install simplecpp\n\
 15) Install geany\n\
-16) Quit\n\nType your option and hit enter:"	
+16) Install DC++
+17) Quit\n\nType your option and hit enter:"	
 main_menu_read
 
 }
@@ -68,7 +70,8 @@ case "$menuA" in
 13) proxy_firefox_off;;
 14) install_simplecpp;;
 15) install_geany;;
-16) exit;;
+16) install_DC;;
+17) exit;;
 *) echo -e "Invalid option\nTry again:";main_menu_read;;
 
 esac
@@ -291,7 +294,7 @@ proxy_allbrowsers_on(){
 
 	 echo -e "\n\nPlease wait while I set up the proxy..."
 	 cd ~/.gconf
-	 gsettings set org.gnome.system.proxy ignore-hosts "['*.iitb.ac.in', 'localhost', '127.0.0.0/8', '10.*.*.*','192.168.*.*']"
+	 gsettings set org.gnome.system.proxy ignore-hosts "['*.iitb.ac.in', 'localhost', '127.0.0.1/8', '10.0.0.1/8','192.168.0.1/16']"
 
 	 gsettings set org.gnome.system.proxy mode "manual"
 
@@ -325,8 +328,9 @@ user_pref("network.proxy.no_proxies_on", "*.iitb.ac.in, localhost, 127.0.0.1, 10
 user_pref("network.proxy.share_proxy_settings", true);
 user_pref("network.proxy.socks", "netmon.iitb.ac.in");
 user_pref("network.proxy.ssl", "netmon.iitb.ac.in");
+user_pref("network.proxy.share_proxy_settings", true);
 EOF
-#user_pref("networkproxy.type", 2);
+#user_pref("network.proxy.type", 1);
 #Technically, we only need the last line of the configuration (Which tells it to use system settings), but it's always good to keep manual proxy settings dormant.
 
 	echo -e "\n Done!"
@@ -413,6 +417,21 @@ install_chromium(){
 		fi
 	
 }
+
+install_DC(){
+		echo -e "Please wait while I install DC.\n\n"
+		install_aptget linuxdcpp
+		OUT=$?
+		if [ $OUT -eq 0 ];then
+		clear
+		echo -e "\n\n Done!\n"
+		else
+  		 clear
+		echo -e "\n\n Some error occured. Please try again or check if you are connected to the internet\n"
+		fi
+	
+}
+
 install_simplecpp(){
 
 echo -e "\nOK. Please download simplecpp from moodle (Login to moodle and go here: http://moodle.iitb.ac.in/mod/resource/view.php?id=998), and ensure it is in your Downloads folder. Press enter when you are done.";
