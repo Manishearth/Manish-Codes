@@ -22,11 +22,13 @@ echo "Password:"
 read pass
 stty echo
 
-passe=${passe//\%/\%25}
-passe=${passe//\@/\%40}
-passe=${passe//\//\%2F}
-passe=${passe//\:/\%3A}
+passe=${pass//\%/\%25}
 
+passe=${passe//\@/\%40}
+
+passe=${passe//\//\%2F}
+
+passe=${passe//\:/\%3A}
 main_menu_disp(){
 echo -e "\n\nPlease choose from the following options:\n\n\
 1) Set up all proxy settings (Use this unless you want to do something specific)\n\
@@ -110,6 +112,14 @@ echo -e "\nOK, less work for me!\n"
 else
 install_simplecpp
 fi
+
+echo -e "\nAlrighty! Do you want to install DC++? (y/n)"
+read dcpp
+if [[ $dcpp != "Y" && $dcpp != "y" ]]; then
+echo -e "\nOK, less work for me!\n"
+else
+install_DC
+fi
 }
 
 proxy_apt_on(){
@@ -148,8 +158,15 @@ sudo apt-add-repository 'deb http://lk.archive.ubuntu.com/ubuntu/ '$ubuntuver' u
 
 echo -e "Updating Sources...\n\n\n"
 sudo apt-get update
-clear    
-echo -e "Done!\n\n"
+		OUT=$?
+		if [ $OUT -eq 0 ];then
+		clear
+		echo -e "\n\n Done!\n"
+		else
+  		 clear
+		echo -e "\n\n Some error occured. Please try again or check if you are connected to the internet\n"
+		fi
+
 }    
 proxy_synaptic_on(){
 			echo -e "\n\nI will have to open Synaptic first. Hit OK if it prompts you for anything, then close it."
@@ -253,6 +270,14 @@ install_synaptic(){
         echo -e "\n\nPlease wait while I install Synaptic.\n\n"
         
         install_aptget synaptic
+		OUT=$?
+		if [ $OUT -eq 0 ];then
+		clear
+		echo -e "\n\n Done!\n"
+		else
+  		 clear
+		echo -e "\n\n Some error occured. Please try again or check if you are connected to the internet\n"
+		fi
 		clear
 		echo -e
 }
