@@ -1065,8 +1065,9 @@ IPAKeyboard.clickButtonEventLambda=function(left, right,tid){
      if($('#IPA-'+tid).length>0){
          return;
      }
-     var floatdiv=$("<div id=IPA-"+tid+" class=IPAHolder><div class=handle style='background-color:grey;'></div><div class=ipakeybd></div></div>").css({"z-index":5,position:"absolute",left:"820px","background-color":"white"})
+     var floatdiv=$("<div id=IPA-"+tid+" class=IPAHolder><div class=handle style='background-color:grey;'></div><div class=ipakeybd></div></div>").css({"z-index":5,position:"absolute",left:"665px","background-color":"white"})
      var ctr=0;
+     $('#content').css('overflow-x','visible')
      floatdiv.insertBefore('#'+tid);
      for(var i=0;i<IPAKeyboard.data.length;i++){
          if(ctr>16){
