@@ -1067,7 +1067,7 @@ IPAKeyboard.clickButtonEventLambda=function(left, right,tid){
      }
      var floatdiv=$("<div id=IPA-"+tid+" class=IPAHolder><div class=handle style='background-color:grey;'></div><div class=ipakeybd></div></div>").css({"z-index":5,position:"absolute",left:"665px","background-color":"white"})
      var ctr=0;
-     $('#content').css('overflow-x','visible')
+     $('#content').css('overflow','visible')
      floatdiv.insertBefore('#'+tid);
      for(var i=0;i<IPAKeyboard.data.length;i++){
          if(ctr>16){
