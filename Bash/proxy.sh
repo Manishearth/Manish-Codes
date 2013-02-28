@@ -305,7 +305,7 @@ proxy_firefox_off(){
 			sudo cat>> ~/.mozilla/firefox/*.default/prefs.js<<EOF
 user_pref("network.proxy.ftp", "netmon.iitb.ac.in");
 user_pref("network.proxy.http", "netmon.iitb.ac.in");
-user_pref("network.proxy.no_proxies_on", "*.iitb.ac.in,localhost, 127.0.0.1, 10.*.*.*");
+user_pref("network.proxy.no_proxies_on", "*.iitb.ac.in,localhost, 127.0.0.1, 10.*.*.*, 192.168.*.*");
 user_pref("network.proxy.share_proxy_settings", true);
 user_pref("network.proxy.socks", "netmon.iitb.ac.in");
 user_pref("network.proxy.ssl", "netmon.iitb.ac.in");
