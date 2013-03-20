@@ -38,7 +38,7 @@
             $('<span class="lsep">|</span><a href="/posts/'+id+'/timeline" class="rev-post" title="Timeline">⌚</a>').appendTo(links);
         
             });
-            return;
+            //return;
         }
         if($('h1#user-displayname').length){
             var userid=document.location.href.match(/\/users\/(\d+)\//ig)[0].replace("/users/","").replace("/","");
@@ -46,7 +46,7 @@
            $(str.replace(/\$id/ig,userid)).insertAfter($('.sub-header-links.fr #my-logins'));
            $('.sub-header-links.fr').css('clear','both');
          //   $('.sub-header-links.fr').insertAfter('.subheader');
-            $('.subheader').css({'border-bottom':'none','height':'auto'});
+           if(document.location.host.match(/serverfault|superuser/ig)){ $('.subheader').css({'border-bottom':'none','height':'auto'});}
         //$('.sub-header-links.fr').css({'border-bottom-width': '1px','border-bottom-style': 'solid','border-bottom-color': '#E5E5E5'});
         }
         
