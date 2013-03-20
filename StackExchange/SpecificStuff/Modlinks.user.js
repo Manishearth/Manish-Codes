@@ -38,7 +38,7 @@
             $('<span class="lsep">|</span><a href="/posts/'+id+'/timeline" class="rev-post" title="Timeline">⌚</a>').appendTo(links);
         
             });
-            //return;
+            return;
         }
         if($('h1#user-displayname').length){
             var userid=document.location.href.match(/\/users\/(\d+)\//ig)[0].replace("/users/","").replace("/","");
