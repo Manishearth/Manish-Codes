@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name           Scroll Control
+// @name           Meta links....they're everywhere!!!
 // @namespace      Manishearth
-// @description    Allow you to control an SE tab via the mouse wheel. Useful for when you want to refresh/close tabs in the background
+// @description    Adds 'meta', 'chat', 'faq', and 'about' links to SE sites when you're logged out
 // @include        http://stackoverflow.com/*
 // @include        http://serverfault.com/*
 // @include        http://superuser.com/*
