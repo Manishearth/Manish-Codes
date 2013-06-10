@@ -22,18 +22,19 @@
  };
 
 
+
  with_jquery(function($){
 
 function intercept(e){
- if(e.keyCode == 9) { // U+0009 CHARACTER TAB
+if(e.keyCode == 9) { // U+0009 CHARACTER TAB
   insertAtCaret(this,"\t")
-		return false;		
-		}		
-	else{
+  return false;		
+}		
+else{
   return true;
-	}
- 
-	}
+}
+}
+
  function insertAtCaret(element, text) {
     if (document.selection) {
         element.focus();
@@ -54,8 +55,7 @@ function intercept(e){
         element.focus();
     }
 }
-
-$('textarea[id^=wmd-input]').on('keydown',intercept)
+$(document.body).on('keydown','textarea[id^=wmd-input]',intercept)
 
 
  });
