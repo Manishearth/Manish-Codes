@@ -177,7 +177,7 @@ with_jquery(function($) {
     }
     do_the_deed = function()
     {
-        keen = $("<div></div>").addClass("keen").css(
+        var keen = $("<div></div>").addClass("keen").css(
                     {"position": "absolute", "top": "100px", "left": "200px",
                      "background": "url(" + imageurl + ") no-repeat top left",
                      "width": 48, "height": 64, "z-index": 1234}
