@@ -42,11 +42,11 @@
         }
         if($('h1#user-displayname').length){
             var userid=document.location.href.match(/\/users\/(\d+)\//ig)[0].replace("/users/","").replace("/","");
-            var str='<a href="/users/history/$id">hist</a><a href="/admin/show-user-ips/$id">IPs</a><a href="/admin/xref-user-ips/$id">xref</a><a href="/admin/users/$id/post-comments">cmts</a><a href="/admin/show-user-votes/$id">votes</a>';
-           $(str.replace(/\$id/ig,userid)).insertAfter($('.sub-header-links.fr #my-logins'));
-           $('.sub-header-links.fr').css('clear','both');
+            var str='<div class="post-issue"><div class="post-issue-display"><a href="/users/history/$id">history</a><a href="/admin/show-user-ips/$id">IPs</a><a href="/admin/xref-user-ips/$id">xref</a><a href="/admin/users/$id/post-comments">comments</a><a href="/admin/show-user-votes/$id">votes</a></div></div>';
+           $(str.replace(/\$id/ig,userid)).insertBefore($('#user-info-container'));
+           //$('.sub-header-links.fr').css('clear','both');
          //   $('.sub-header-links.fr').insertAfter('.subheader');
-           if(!document.location.host.match(/serverfault|superuser/ig)){ $('.subheader').css({'border-bottom':'none','height':'auto'});}
+          // if(!document.location.host.match(/serverfault|superuser/ig)){ $('.subheader').css({'border-bottom':'none','height':'auto'});}
         //$('.sub-header-links.fr').css({'border-bottom-width': '1px','border-bottom-style': 'solid','border-bottom-color': '#E5E5E5'});
         }
         
