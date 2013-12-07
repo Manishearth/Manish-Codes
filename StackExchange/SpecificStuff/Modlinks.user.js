@@ -30,7 +30,7 @@
 
     with_jquery(function($) {
         
-        if($('#hlinks-user:has(.mod-flair)').length==0){
+        if($('.icon-inbox-mod').length==0){
                     $('.answer,.question').each(function(){
             var id = $(this).data('questionid') || $(this).data('answerid');
             var links=$(this).find('.post-menu');
