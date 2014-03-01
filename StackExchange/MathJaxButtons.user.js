@@ -15,6 +15,6 @@
 	 var d=new Date();
      var script = document.createElement("script");
      script.type = "text/javascript";
-     script.src="https://raw.github.com/Manishearth/Manish-Codes/master/StackExchange/MathJaxButtonsSites.js?rand="+d.getMonth()+""+d.getDay();
+     script.src="https://raw.github.com/episanty/Manish-Codes/master/StackExchange/MathJaxButtonsSites.js?rand="+d.getMonth()+""+d.getDay();
      document.body.appendChild(script);
 })();
