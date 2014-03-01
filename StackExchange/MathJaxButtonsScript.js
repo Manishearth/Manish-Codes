@@ -97,7 +97,7 @@ MathJaxButtons.buttonconfig={
 
 	//Special per-site ones:
 	"3 (Chem)":["O<sub>2</sub>",clickButtonEventLambda("$\\ce{","}$"),"chemify","","c",/chemistry/ig,"","Enclose selection in "+inlineMath[0]+"\ce{...}"+inlineMath[1]],
-	"5 (Phy)":["<b>E</b>",clickButtonEventLambda("\\mathbf{","}"),"vectorfield","","v",/physics/ig,"","FORMAT SELECTION AS VECTOR FIELD"],
+	"5 (Phy)":["<b>E</b>",clickButtonEventLambda("\\mathbf{","}"),"vectorfield","","v",/physics/ig,"","Format selection as vector field"],
 	//Electronics.SE needs a backslash
 	"1 (DollarElectronics)":[inlineMath[0],clickButtonEventLambda("\\$","\\$"),"dollar","","m",/electronics/ig,"","Enclose in MathJax dollar symbols"],
 	"4 (DDollarElectronics)":[blockMath[0],clickButtonEventLambda("$$","$$"),"Ddollar","","d",/electronics/ig,"","Enclose in MathJax double-dollar symbols"], //keyboard shortcut
