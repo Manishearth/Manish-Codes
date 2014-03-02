@@ -282,7 +282,7 @@ $(document).ready(function(){
 }
 
 
-if(jQuery){
+if(window.jQuery){
 importMainScript(jQuery)
 }else{
 with_jquery(importMainScript);
