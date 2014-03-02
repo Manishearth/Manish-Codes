@@ -51,7 +51,7 @@ for(var i=0;i<sites.length;i++){
 			break;
 		}
 }
-function importMainScript($){
+function importMainScript(jq){
 window.MathJaxButtons={};
 with(MathJaxButtons){
 //clickbuttoneventlambda:
