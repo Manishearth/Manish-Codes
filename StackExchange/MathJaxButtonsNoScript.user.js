@@ -23,6 +23,7 @@
 // @include http://scicomp.stackexchange.com/*
 // @include http://dsp.stackexchange.com/*
 // @include http://cogsci.stackexchange.com/*
+// @include http://mathoverflow.net/*
 // @require http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
 // ==/UserScript==
 
