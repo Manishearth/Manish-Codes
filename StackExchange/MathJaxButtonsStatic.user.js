@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name MathJax buttons
-// @version 2.2.2
+// @version 3.0
 // @grant none
 // @author Manish Goregaokar (http://stackapps.com/users/10098/manishearth)
 // @description Adds math buttons to the SEeditor, including a "$" button, a "$$" button, an SI-unit-ify button (on science sites), and a "\ce{}" button on chem.SE
@@ -30,6 +30,13 @@
 
 //Some functionality copied from https://gist.github.com/2583075. Thanks, Brock.
 
+
+function with_jquery(f) {
+     var script = document.createElement("script");
+     script.type = "text/javascript";
+     script.textContent = "(" + f.toString() + ")(jQuery)";
+     document.body.appendChild(script);
+};
 
 function importMainScript($){
 window.MathJaxButtons={};
