@@ -30,28 +30,8 @@
 
 //Some functionality copied from https://gist.github.com/2583075. Thanks, Brock.
 
-function with_jquery(f) {
-     var script = document.createElement("script");
-     script.type = "text/javascript";
-     script.textContent = "(" + f.toString() + ")(jQuery)";
-     document.body.appendChild(script);
-};
 
-//*************************************
-var x="http://"+window.location.hostname;
-var sites=["[^\\/]*math[^\\/]*","physics","[^\\/]*chemistry","biology","electronics","crypto","[^\\/]*quant","[^\\/]*stats","dsp","cogsci","cs","[^\\/]*cstheory","scicomp","mathoverflow"];	  
-//*************************************
-
-
-
-for(var i=0;i<sites.length;i++){
-		var reg=new RegExp("http:\\/\\/"+sites[i]+".stackexchange.com","gi");
-		if(x.match(reg)){
-			importMainScript();
-			break;
-		}
-}
-function importMainScript(jq){
+function importMainScript($){
 window.MathJaxButtons={};
 with(MathJaxButtons){
 //clickbuttoneventlambda:
@@ -302,6 +282,8 @@ $(document).ready(function(){
 }
 
 
-
-
+if(jQuery){
+importMainScript(jQuery)
+}else{
 with_jquery(importMainScript);
+}
