@@ -1,3 +1,5 @@
+//PLEASE USE https://github.com/Manishearth/Manish-Codes/blob/master/StackExchange/MathJaxButtonsStatic.user.js instead
+
 // ==UserScript==
 // @name MathJax buttons (NoScript support)
 // @version 2.2.2
