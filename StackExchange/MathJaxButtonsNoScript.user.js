@@ -30,6 +30,12 @@
 
 //Some functionality copied from https://gist.github.com/2583075. Thanks, Brock.
 
+function with_jquery(f) {
+     var script = document.createElement("script");
+     script.type = "text/javascript";
+     script.textContent = "(" + f.toString() + ")(jQuery)";
+     document.body.appendChild(script);
+};
 
 //*************************************
 var x="http://"+window.location.hostname;
@@ -45,7 +51,7 @@ for(var i=0;i<sites.length;i++){
 			break;
 		}
 }
-function importMainScript(){
+function importMainScript($){
 window.MathJaxButtons={};
 with(MathJaxButtons){
 //clickbuttoneventlambda:
@@ -293,4 +299,12 @@ $(document).ready(function(){
 	MathJaxButtons.addKeyPressEventLives()
 	$("textarea.wmd-input").live("focus",MathJaxButtons.addButtons);
 });
+}
+
+
+
+if(jQuery){
+importMainScript(jQuery)
+}else{
+with_jquery(importMainScript)	
 }
