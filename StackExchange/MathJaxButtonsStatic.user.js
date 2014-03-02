@@ -303,8 +303,5 @@ $(document).ready(function(){
 
 
 
-if(jQuery){
-importMainScript(jQuery);
-}else{
+
 with_jquery(importMainScript);
-}
