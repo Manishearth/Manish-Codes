@@ -33,7 +33,7 @@
 
 //*************************************
 var x="http://"+window.location.hostname;
-var sites=["[^\\/]*math[^\\/]*","physics","[^\\/]*chemistry","biology","electronics","crypto","[^\\/]*quant","[^\\/]*stats","dsp","cogsci","cs","[^\\/]*cstheory","scicomp"];    
+var sites=["[^\\/]*math[^\\/]*","physics","[^\\/]*chemistry","biology","electronics","crypto","[^\\/]*quant","[^\\/]*stats","dsp","cogsci","cs","[^\\/]*cstheory","scicomp","mathoverflow"];	  
 //*************************************
 
 
@@ -152,7 +152,8 @@ MathJaxButtons.buttonconfig={
 	//Big O notation
 	"5 (BigO)":['NONE',clickButtonEventLambda(inlineMath[0]+"\\mathcal{O}(",")"+inlineMath[1]),"BigO","","o",/(crypto|\/cs\.stack|cstheory)/ig,/electronics.stack/ig,"Enclose selection in big O notation"],
 	"6 (SansSerif)":['NP',clickButtonEventLambda(inlineMath[0]+"\\mathsf{","}"+inlineMath[1]),"serify","","s",/(cstheory|\/cs\.stack)/ig,/electronics.stack/ig,"Enclose selection in "+inlineMath[0]+"\\mathsf{..}"+inlineMath[1]],
-
+	"7 (Phy)":["〈 |",clickButtonEventLambda("\\langle "," |"),"bra","","b",/physics/ig,"","Enclose selection in bra"],
+	"8 (Phy)":["| 〉",clickButtonEventLambda("| "," \\rangle"),"ket","","k",/physics/ig,"","Enclose selection in ket"],
 
 
 	//Just keyboard shortcuts
