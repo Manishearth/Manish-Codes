@@ -304,7 +304,7 @@ $(document).ready(function(){
 
 
 if(jQuery){
-importMainScript(jQuery)
+importMainScript(jQuery);
 }else{
-with_jquery(importMainScript)	
+with_jquery(importMainScript);
 }
