@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name           Bring Back Bold!
+// @name           MSE Skin
 // @namespace      Manishearth
-// @description    Brings back the bold reputation counter/post scores!
+// @description    Use the new Meta Stack Exchange skin on MSO
 // @include        http://meta.stackoverflow.com/*
 // @author         Manish Goregaokar
 // @author         nhahtdh
