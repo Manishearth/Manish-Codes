@@ -9,6 +9,11 @@
 // @include http://*serverfault.com/questions/*
 // @include http://*stackexchange.com/questions/*
 // @include http://discuss.area51.com/questions/*
+// @include https://*stackoverflow.com/questions/*
+// @include https://*superuser.com/questions/*
+// @include https://*serverfault.com/questions/*
+// @include https://*stackexchange.com/questions/*
+// @include https://discuss.area51.com/questions/*
 // ==/UserScript==
 
 function with_jquery(f) {
@@ -20,6 +25,7 @@ function with_jquery(f) {
 
 
 with_jquery(function($){
+
 $('document').ready(function(){
     var htm=$('.post-menu').html()||"";
     if(htm!=-1&&$('[id^=close-question] span').length!=0){
@@ -27,12 +33,13 @@ $('document').ready(function(){
     }
 $('.post-menu').append($('<span class="lsep">|</span><a class="printme" href="#" title="Print this post">print</a>'));
 $('.printme').bind("click",function(){
+        debugger;
 	if(!confirm("Are you sure that you want to waste some paper?\n Any content you've not submitted on this page will be lost.")){
 		return false;	
 	
 	}
-	usernameprint=$(this).closest('div.question,div[id^=answer]').find("td.post-signature.owner div.user-details a")[0].innerHTML;
-	printpost=$(this).closest('div.question,div[id^=answer]').find('.post-text').clone().css("margin-left","15px");
+	var usernameprint=$(this).closest('div.question,div[id^=answer]').find("div.post-signature div.user-info div.user-details").eq(1).text();
+	var printpost=$(this).closest('div.question,div[id^=answer]').find('.post-text').clone().css("margin-left","15px");
 	$('body').empty();
 	$('body').append(printpost);
 	$('body').css('text-align','left')
