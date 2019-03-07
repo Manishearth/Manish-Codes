@@ -1,22 +1,16 @@
 // ==UserScript==
-// @name           Punch-a-user
+// @name           Stack Exchange: Punch a user
 // @namespace      Manishearth
 // @description    Allow you to summon Commander Keen and have him punch users
-// @include        http://stackoverflow.com/*
-// @include        http://serverfault.com/*
-// @include        http://superuser.com/*
-// @include        http://meta.stackoverflow.com/*
-// @include        http://meta.serverfault.com/*
-// @include        http://meta.superuser.com/*
-// @include        http://stackapps.com/*
-// @include        http://*.stackexchange.com/*
-// @include        http://askubuntu.com/*
-// @include        http://meta.askubuntu.com/*
-// @include        http://answers.onstartups.com/*
-// @include        http://meta.answers.onstartups.com/*
-// @include        http://mathoverflow.net/*
-// @include        http://area51.stackexchange.com/proposals/*
-// @exclude        http://chat.*/*
+// @match          https://*.stackoverflow.com/*
+// @match          https://*.stackexchange.com/*
+// @match          https://*.serverfault.com/*
+// @match          https://*.superuser.com/*
+// @match          https://*.stackapps.com/*
+// @match          https://*.askubuntu.com/*
+// @match          https://*.mathoverflow.net/*
+// @exclude        https://chat.*/*
+
 // @author         Manish Goregaokar
 
 // ==/UserScript==
